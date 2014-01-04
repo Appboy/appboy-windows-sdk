@@ -1,8 +1,8 @@
 [submodule "Store/Externals/AppboyUI.Store"]
 	path = Store/Externals/AppboyUI.Store
-	url = git@github.com:Appboy/windows-store-ui.git
+	url = git@github.com:Appboy/appboy-windows-store-ui.git
 	branch = master
 [submodule "Phone/Externals/AppboyUI.Phone"]
 	path = Phone/Externals/AppboyUI.Phone
-	url = git@github.com:Appboy/windows-phone-ui.git
+	url = git@github.com:Appboy/appboy-windows-phone-ui.git
 	branch = master
