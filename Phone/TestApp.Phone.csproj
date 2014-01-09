@@ -273,7 +273,7 @@
       <Project>{5CBE6D87-1FD0-4DF8-9FB3-1FD3E31AA208}</Project>
       <Name>AppboyPlatform.Phone</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AppboyUI.Phone\AppboyUI.Phone.csproj" Condition="'$(Configuration)'=='AppboyDevelop' Or '$(Configuration)'=='AppboyDeploy'">
+    <ProjectReference Include="Externals\AppboyUI.Phone\AppboyUI.Phone.csproj" Condition="'$(Configuration)'=='AppboyDevelop' Or '$(Configuration)'=='AppboyDeploy'">
       <Project>{F3F057FE-0807-43FB-B214-4E67E27D5BA6}</Project>
       <Name>AppboyUI.Phone</Name>
     </ProjectReference>
@@ -302,7 +302,7 @@
       <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.5.0.8\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NodaTime">
-      <HintPath>$(SolutionDir)\NodaTime.1.2.0\lib\portable-win+net40+sl4+wp7\NodaTime.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\NodaTime.1.2.0\lib\portable-win+net40+sl4+wp7\NodaTime.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
