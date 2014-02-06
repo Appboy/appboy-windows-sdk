@@ -33,16 +33,16 @@
 
     <Grid Grid.Row="0">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="120"/>
+        <ColumnDefinition Width="Auto"/>
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
-      <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-        Style="{StaticResource NavigationBackButtonNormalStyle}"
+      <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}" Width="71"
+      Style="{StaticResource BackButtonStyle}"
         VerticalAlignment="Top"
         AutomationProperties.Name="Back"
         AutomationProperties.AutomationId="BackButton"
-        AutomationProperties.ItemType="Navigation Button"/>
-      <TextBlock x:Name="pageTitle" Text="{StaticResource PageTitle}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+        AutomationProperties.ItemType="Navigation Button" RenderTransformOrigin="0.775,0.543"/>
+      <TextBlock x:Name="pageTitle" Text="{StaticResource PageTitle}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" 
         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
     </Grid>
 

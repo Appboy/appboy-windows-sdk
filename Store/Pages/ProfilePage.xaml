@@ -8,7 +8,7 @@
   mc:Ignorable="d">
 
   <Page.Resources>
-    <x:String x:Key="PageName">Profile</x:String>
+    <x:String x:Key="PageTitle">Profile</x:String>
     <x:String x:Key="FirstNameLabel">First Name:</x:String>
     <x:String x:Key="LastNameLabel">Last Name:</x:String>
     <x:String x:Key="EmailLabel">Email:</x:String>
@@ -38,16 +38,16 @@
 
     <Grid Grid.Row="0">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="120"/>
+        <ColumnDefinition Width="Auto"/>
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
-      <Button Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-        Style="{StaticResource NavigationBackButtonNormalStyle}"
+      <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+      Style="{StaticResource BackButtonStyle}"
         VerticalAlignment="Top"
         AutomationProperties.Name="Back"
         AutomationProperties.AutomationId="BackButton"
         AutomationProperties.ItemType="Navigation Button"/>
-      <TextBlock Text="{StaticResource PageName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+      <TextBlock x:Name="pageTitle" Style="{StaticResource PageHeaderTextStyle}" Text="{StaticResource PageTitle}" Grid.Column="1" 
         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
     </Grid>
     <Grid Grid.Row="1" Width="250" VerticalAlignment="Center">

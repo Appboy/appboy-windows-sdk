@@ -11,7 +11,7 @@
     mc:Ignorable="d">
 
   <Page.Resources>
-    <x:String x:Key="PageName">Settings</x:String>
+    <x:String x:Key="PageTitle">Settings</x:String>
     <x:String x:Key="UseCustomSlideup">Use Custom Slideup</x:String>
   </Page.Resources>
 
@@ -20,7 +20,8 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
+  <Grid>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -33,19 +34,19 @@
 
         <!-- Back button and page title -->
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Top"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource PageName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" FontFamily="Global User Interface"/>
-        </Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+      Style="{StaticResource BackButtonStyle}"
+        VerticalAlignment="Top"
+        AutomationProperties.Name="Back"
+        AutomationProperties.AutomationId="BackButton"
+        AutomationProperties.ItemType="Navigation Button"/>
+      <TextBlock x:Name="pageTitle" Text="{StaticResource PageTitle}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" 
+        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+    </Grid>
     <CheckBox  Grid.Row="1" x:Name="UseCustomSlideupCheckBox" Width="350" Height="40" Margin="0,8,0,8" Padding="8,-8,0,0" Content="{StaticResource UseCustomSlideup}" HorizontalAlignment="Center" VerticalContentAlignment="Top" Checked="SlideupCheckBox_Checked" Unchecked="SlideupCheckBox_Unchecked" IsChecked="{Binding UseCustomSlideupCheckBoxValue}" FontSize="28"/>       
   </Grid>
 </Page>

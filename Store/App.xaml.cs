@@ -2,7 +2,6 @@
 using AppboyPlatform.Store;
 using AppboyPlatform.Store.Managers.PushArgs;
 using AppboyUI.Store.Factories;
-using BugSense.Model;
 using System;
 using System.Diagnostics;
 using TestApp.Store.AppboyClasses;

@@ -15,7 +15,8 @@
     <x:String x:Key="AppBarMisc">Misc</x:String>
   </Page.Resources>
 
-  <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
+  <Grid>
     <Grid.ChildrenTransitions>
       <TransitionCollection>
         <EntranceThemeTransition/>
@@ -28,16 +29,16 @@
 
     <Grid Grid.Row="0">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="120"/>
+        <ColumnDefinition Width="Auto"/>
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
-      <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-        Style="{StaticResource NavigationBackButtonNormalStyle}"
+      <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}" Width="57"
+      Style="{StaticResource BackButtonStyle}"
         VerticalAlignment="Top"
         AutomationProperties.Name="Back"
         AutomationProperties.AutomationId="BackButton"
         AutomationProperties.ItemType="Navigation Button"/>
-      <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+      <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" 
         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
     </Grid>
     <Grid Grid.Row="1" Margin="0,0,0,50">
@@ -84,34 +85,24 @@
       </Rectangle>
     </Grid>
   </Grid>
-
   <Page.BottomAppBar>
-    <CommandBar>
-      <AppBarButton Label="{StaticResource AppBarNewsFeed}" Click="Feed_Click">
-        <AppBarButton.Icon>
-          <BitmapIcon UriSource="ms-appx:///Assets/Icons/feed.png"/>
-        </AppBarButton.Icon>
-      </AppBarButton>
-      <AppBarButton Label="{StaticResource AppBarFeedback}" Click="Feedback_Click">
-        <AppBarButton.Icon>
-          <BitmapIcon UriSource="ms-appx:///Assets/Icons/feedback.png"/>
-        </AppBarButton.Icon>
-      </AppBarButton>
-      <AppBarButton Label="{StaticResource AppBarProfile}" Click="Profile_Click">
-        <AppBarButton.Icon>
-          <BitmapIcon UriSource="ms-appx:///Assets/Icons/profile.png"/>
-        </AppBarButton.Icon>
-      </AppBarButton>
-      <AppBarButton Label="{StaticResource AppBarSettings}" Click="Settings_Click">
-        <AppBarButton.Icon>
-          <BitmapIcon UriSource="ms-appx:///Assets/Icons/edit.png"/>
-        </AppBarButton.Icon>
-      </AppBarButton>
-      <AppBarButton Label="{StaticResource AppBarMisc}" Click="Misc_Click">
-        <AppBarButton.Icon>
-          <BitmapIcon UriSource="ms-appx:///Assets/Icons/misc.png"/>
-        </AppBarButton.Icon>
-      </AppBarButton>
-    </CommandBar>
+    <AppBar>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+          <Button AutomationProperties.Name="{StaticResource AppBarNewsFeed}" Width="140" Height="Auto" Click="Feed_Click" Style="{StaticResource ListAppBarButtonStyle}"></Button>
+          <Button AutomationProperties.Name="{StaticResource AppBarFeedback}" Width="140" Height="Auto" Click="Feedback_Click" Style="{StaticResource PostUpdateAppBarButtonStyle}"></Button>
+          <Button AutomationProperties.Name="{StaticResource AppBarProfile}" Width="140" Height="Auto" Click="Profile_Click" Style="{StaticResource ContactPresenceAppBarButtonStyle}"></Button>
+          <Button AutomationProperties.Name="{StaticResource AppBarSettings}" Width="140" Height="Auto" Click="Settings_Click" Style="{StaticResource BookmarksAppBarButtonStyle}"></Button>
+          <Button AutomationProperties.Name="{StaticResource AppBarMisc}" Width="140" Height="Auto" Click="Misc_Click" Style="{StaticResource BulletsAppBarButtonStyle}"></Button>
+        </StackPanel>
+      </Grid>
+    </AppBar>
   </Page.BottomAppBar>
 </Page>

@@ -9,7 +9,16 @@
   <!--Application Resources-->
   <Application.Resources>
     <ResourceDictionary>
-      <system:String x:Key="AppName">Windows Phone Test Application</system:String>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+          <system:String x:Key="AppName">Windows Phone Test Application</system:String>
+        </ResourceDictionary>
+
+        <!-- Applies the default Appboy stylesheet which contains styles for all of the AppboyUI UserControls -->
+        <ResourceDictionary Source="/AppboyUI.Phone;component/Assets/Styles/Default.xaml"/>
+        <!-- Applies your own custom stylesheet which overrides the default Appboy styles -->
+        <ResourceDictionary Source="/TestApp.Phone;component/Assets/Styles/AppboyOverride.xaml"/>
+      </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Application.Resources>
 

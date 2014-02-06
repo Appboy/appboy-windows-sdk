@@ -5,6 +5,10 @@
 
   <Application.Resources>
     <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+      </ResourceDictionary.MergedDictionaries>
+      <!-- Application-specific resources -->
       <x:String x:Key="AppName">Windows Store Test Application</x:String>
     </ResourceDictionary>
   </Application.Resources>
