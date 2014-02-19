@@ -222,13 +222,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AppboyPlatform.PCL, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AppboyPlatform.PCL, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Test.Store.Release.1.0.0.1\lib\win81\AppboyPlatform.PCL.dll</HintPath>
+      <HintPath>packages\Test.Store.Release.1.0.0.2\lib\win81\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
-    <Reference Include="AppboyPlatform.Store, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AppboyPlatform.Store, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Test.Store.Release.1.0.0.1\lib\win81\AppboyPlatform.Store.dll</HintPath>
+      <HintPath>packages\Test.Store.Release.1.0.0.2\lib\win81\AppboyPlatform.Store.dll</HintPath>
     </Reference>
     <Reference Include="Lex.Db, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
