@@ -15,7 +15,7 @@ Please e-mail support@appboy.com with any questions.
   - Set the `Build Action` to `Content`.
   - Set `Copy to Output Directory` to `Copy always`.
 6. Edit the `AppboyConfiguration.xml` file, replacing `YOUR_API_KEY_HERE` with your api key from the Appboy dashboard.
-7. In your `WMAppManifest.xml`, ensure that `ID_CAP_LOCATION` and `ID_CAP_PUSH_NOTIFICATION` are checked.
+7. In your `WMAppManifest.xml`, ensure that `ID_CAP_LOCATION`, `ID_CAP_PUSH_NOTIFICATION`, and `ID_CAP_IDENTITY_DEVICE` are checked.
 
 ## Analytics
 1. Call `Appboy.SharedInstance.OpenSession()` in the application's Launching and Activated event handlers. These are found in the App.xaml.cs file and are typically have the following signatures: 
