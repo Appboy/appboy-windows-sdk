@@ -18,7 +18,7 @@
     <x:String x:Key="ChangeUser">Change User</x:String>
   </Page.Resources>
 
-  <Grid>
+  <Grid Background="#222222">
     <Grid.ChildrenTransitions>
       <TransitionCollection>
         <EntranceThemeTransition/>
@@ -28,12 +28,6 @@
       <RowDefinition Height="140"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <Grid.Background>
-      <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-        <GradientStop Color="#4b4b4b" Offset="0"/>
-        <GradientStop Color="#363636" Offset="1"/>
-      </LinearGradientBrush>
-    </Grid.Background>
 
     <Grid Grid.Row="0">
       <Grid.ColumnDefinitions>
@@ -55,7 +49,6 @@
       <Button Width="200" Height="50" Margin="0,8,0,8" Background="#a11b3c" BorderThickness="0" Content="{StaticResource SubmitFeedback}" HorizontalAlignment="Center" Click="SubmitFeedback_Click"/>
       <Button Width="200" Height="50" Margin="0,8,0,8" Background="#058e9e" BorderThickness="0" Content="{StaticResource Requesteed}" HorizontalAlignment="Center" Click="RequestFeed_Click"/>
       <Button Width="200" Height="50" Margin="0,8,0,8" Background="#96519e" BorderThickness="0" Content="{StaticResource RequestDataFlush}" HorizontalAlignment="Center" Click="RequestDataFlush_Click"/>
-      <Button Width="200" Height="50" Margin="0,8,0,8" Background="#1f5cc4" BorderThickness="0" Content="{StaticResource RequestSlideup}" HorizontalAlignment="Center" Click="RequestSlideup_Click"/>
       <Button Width="200" Height="50" Margin="0,8,0,8" Background="#cf0861" BorderThickness="0" Content="{StaticResource ChangeUser}" HorizontalAlignment="Center" Click="ChangeUser_Click"/>
     </StackPanel>
   </Grid>

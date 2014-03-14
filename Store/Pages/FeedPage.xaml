@@ -12,7 +12,7 @@
     <x:String x:Key="PageTitle">News Feed</x:String>
   </Page.Resources>
 
-  <Grid>
+  <Grid Background="#222222">
     <Grid.ChildrenTransitions>
       <TransitionCollection>
         <EntranceThemeTransition/>
@@ -22,12 +22,6 @@
       <RowDefinition Height="140"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <Grid.Background>
-      <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-        <GradientStop Color="Brown" Offset="0"/>
-        <GradientStop Color="Black" Offset="2.5"/>
-      </LinearGradientBrush>
-    </Grid.Background>
 
     <Grid Grid.Row="0">
       <Grid.ColumnDefinitions>

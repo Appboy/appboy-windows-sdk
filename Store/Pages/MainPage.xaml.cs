@@ -32,10 +32,10 @@ namespace TestApp.Store.Pages {
     }
     #endregion
 
-    private void Misc_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(MiscPage));
+    private void Feed_Click(object sender, RoutedEventArgs e) {
+      Frame.Navigate(typeof(AppboyFeedPage));
     }
-
+    
     private void Feedback_Click(object sender, RoutedEventArgs e) {
       Frame.Navigate(typeof(AppboyFeedbackPage));
     }
@@ -44,12 +44,12 @@ namespace TestApp.Store.Pages {
       Frame.Navigate(typeof(ProfilePage));
     }
 
-    private void Feed_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(AppboyFeedPage));
+    private void Misc_Click(object sender, RoutedEventArgs e) {
+      Frame.Navigate(typeof(MiscPage));
     }
 
-    private void Settings_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(SettingsPage));
+    private void Slideups_Click(object sender, RoutedEventArgs e) {
+      Frame.Navigate(typeof(SlideupPage));
     }
   }
 }
