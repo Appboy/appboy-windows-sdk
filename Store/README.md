@@ -30,8 +30,6 @@ Custom events can be logged by using the `EventLogger`, which is a property expo
  - `bool LogFeedDisplayed()`
  - `bool LogFeedCardImpression(string cardId)`
  - `bool LogFeedCardClick(string cardId)`
- - `bool LogSlideupShown()`
- - `bool LogSlideupClicked()`
 
 ## User Attributes
 Appboy provides methods for assigning attributes to users. You'll be able to filter and segment your users according to these attributes on the dashboard. User attributes can be assigned to the current `IAppboyUser`. To obtain a reference to the current `IAppboyUser`, call `Appboy.SharedInstance.AppboyUser`. The following attributes are exposed as properties of the `IAppboyUser`:
@@ -67,9 +65,7 @@ Integer custom attributes can be incremented by using the `IncrementCustomAttrib
 
 ## Slideup
 1. Slideup messages are handled by the Appboy `SlideupManager`, which is exposed as a property of the Appboy
- class. To use the default Appboy slideup UI, assign the `AppboyUI.Store.Factories.SlideupFactory`. 
-2.  If you want to provide your own slideup experience, you can implement your own `SlideupFactory`. The slideup returned  from the `SlideupFactory` is animated in from the bottom of the screen by the `SlideupManager`. When a slideup is clicked, the `SlideupClickedEvent` is fired. 
-3.  The `SlideupManager` can also be given a `SlideupReceivedDelegate` that can control which messages are displayed. To suppress all slideup messages from being displayed, assign a `SlideupReceivedDelegate` which always returns false.
+ class. To use the default Appboy slideup UI, assign the `AppboyUI.Store.Factories.SlideupControlFactory`. 
 
 ## Theming
 You can customize the user interface to fit your app by overriding the default styles. The default styles for all of the UI controls are defined in the `AppboyUI.Store` project in the `Assets/Styles/Default.xaml` file. To override a default style, copy over the style element into the `AppboyStyles.xaml` locaated at the root of your project and change one or more of its properties.
