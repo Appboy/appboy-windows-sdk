@@ -70,10 +70,6 @@ namespace TestApp.Store.Pages {
       Appboy.SharedInstance.RequestDataFlush();
     }
 
-    private void RequestSlideup_Click(object sender, RoutedEventArgs e) {
-      Appboy.SharedInstance.RequestSlideup();
-    }    
-
     private void ChangeUser_Click(object sender, RoutedEventArgs e) {
       if (!(_isUserId1 ?? false)) {
         Appboy.SharedInstance.ChangeUser(_userId1);

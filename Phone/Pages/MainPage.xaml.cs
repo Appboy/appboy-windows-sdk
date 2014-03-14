@@ -1,9 +1,7 @@
-﻿using System;
-using System.ServiceModel.Channels;
-using System.Windows;
-using System.Windows.Controls;
-using AppboyPlatform.Phone;
+﻿using AppboyPlatform.Phone;
 using Microsoft.Phone.Controls;
+using System;
+using System.Windows;
 
 namespace TestApp.Phone.Pages {
   public partial class MainPage : PhoneApplicationPage {
@@ -15,9 +13,8 @@ namespace TestApp.Phone.Pages {
       base.OnNavigatedTo(e);
 
       if (Appboy.SharedInstance.PushManager.ToastOptInStatus == null) {
-        MessageBoxResult messageBoxResult =
-          MessageBox.Show("We would like to send toast notifications to enhance your experience of the application.","Toast Notifications.", MessageBoxButton.OKCancel);        
-          Appboy.SharedInstance.PushManager.ToastOptInStatus = (messageBoxResult == MessageBoxResult.OK);
+        var messageBoxResult = MessageBox.Show("We would like to send toast notifications to enhance your experience of the application.","Toast Notifications.", MessageBoxButton.OKCancel);        
+        Appboy.SharedInstance.PushManager.ToastOptInStatus = (messageBoxResult == MessageBoxResult.OK);
       }
     }
 
@@ -36,8 +33,13 @@ namespace TestApp.Phone.Pages {
     private void Misc_Click(object sender, EventArgs e) {
       NavigationService.Navigate(new Uri("/Pages/MiscPage.xaml", UriKind.Relative));
     }
+
     private void Settings_Click(object sender, EventArgs e) {
       NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
+    }
+
+    private void Slideups_Click(object sender, EventArgs e) {
+      NavigationService.Navigate(new Uri("/Pages/SlideupPage.xaml", UriKind.Relative));
     }
   }
 }

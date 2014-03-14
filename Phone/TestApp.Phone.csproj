@@ -215,10 +215,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppboyClasses\Slideup.xaml.cs">
-      <DependentUpon>Slideup.xaml</DependentUpon>
+    <Compile Include="AppboyClasses\CustomSlideupControl.xaml.cs">
+      <DependentUpon>CustomSlideupControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppboyClasses\SlideupFactory.cs" />
+    <Compile Include="AppboyClasses\SlideupControlFactory.cs" />
+    <Compile Include="AppboyClasses\CustomUriMapper.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Pages\FeedbackPage.xaml.cs">
       <DependentUpon>FeedbackPage.xaml</DependentUpon>
@@ -238,6 +239,9 @@
     <Compile Include="Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SlideupPage.xaml.cs">
+      <DependentUpon>SlideupPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -251,7 +255,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="AppboyClasses\Slideup.xaml">
+    <Page Include="AppboyClasses\CustomSlideupControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,6 +287,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SlideupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages-release.config">
@@ -300,13 +308,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\AlignmentGrid.png" />
-    <Content Include="Assets\ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\Icons\feedback.png" />
     <Content Include="Assets\Icons\feed.png" />
     <Content Include="Assets\Icons\profile.png" />
     <Content Include="Assets\Icons\misc.png" />
+    <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\Images\Chevron\chevron.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -323,6 +330,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="BugSense\BugSense - SDK License Agreement.txt" />
+    <Content Include="Logo.scale-100.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
@@ -339,7 +347,7 @@
       <Project>{5CBE6D87-1FD0-4DF8-9FB3-1FD3E31AA208}</Project>
       <Name>AppboyPlatform.Phone</Name>
     </ProjectReference>
-    <ProjectReference Include="Externals\AppboyUI.Phone\AppboyUI.Phone.csproj" Condition="'$(Configuration)'=='AppboyDevelop' Or '$(Configuration)'=='AppboyDeploy'">
+    <ProjectReference Include="Externals\AppboyUI.Phone\AppboyUI.Phone.csproj">
       <Project>{F3F057FE-0807-43FB-B214-4E67E27D5BA6}</Project>
       <Name>AppboyUI.Phone</Name>
     </ProjectReference>
@@ -351,10 +359,10 @@
   <ItemGroup />
   <ItemGroup>
     <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDevelop' And '$(Configuration)'!='AppboyDeploy'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.0.0.1\lib\wp80\AppboyPlatform.PCL.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.0.0\lib\wp80\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
     <Reference Include="AppboyPlatform.Phone" Condition="'$(Configuration)'!='AppboyDevelop' And '$(Configuration)'!='AppboyDeploy'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.0.0.1\lib\wp80\AppboyPlatform.Phone.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.0.0\lib\wp80\AppboyPlatform.Phone.dll</HintPath>
     </Reference>
     <Reference Include="BugSense-WP8, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -401,8 +409,8 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == AppboyDeploy (
-xcopy /Y /s /i $(SolutionDir)$(ProjectName) $(SolutionDir)Public\appboy-windows-samples\Phone /EXCLUDE:$(SolutionDir)xcopy-exclusion.txt
-xcopy /Y /s /i $(SolutionDir)$(ProjectName)\packages-release.config $(SolutionDir)Public\appboy-windows-samples\Phone\packages.config
+xcopy /Y /s /i "$(SolutionDir)$(ProjectName)" "$(SolutionDir)Public\appboy-windows-samples\Phone" /EXCLUDE:..\..\..\xcopy-exclusion.txt
+xcopy /Y /s /i "$(SolutionDir)$(ProjectName)\packages-release.config" "$(SolutionDir)Public\appboy-windows-samples\Phone\packages.config"
 )</PostBuildEvent>
   </PropertyGroup>
 </Project>

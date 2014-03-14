@@ -106,7 +106,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Page Include="AppboyClasses\Slideup.xaml">
+    <Page Include="AppboyClasses\CustomSlideupControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -138,7 +138,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\SettingsPage.xaml">
+    <Page Include="Pages\SlideupPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,10 +147,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppboyClasses\Slideup.xaml.cs">
-      <DependentUpon>Slideup.xaml</DependentUpon>
+    <Compile Include="AppboyClasses\CustomSlideupControl.xaml.cs">
+      <DependentUpon>CustomSlideupControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppboyClasses\SlideupFactory.cs" />
+    <Compile Include="AppboyClasses\SlideupControlFactory.cs" />
     <Compile Include="Common\NavigationHelper.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
@@ -167,8 +167,8 @@
     <Compile Include="Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    <Compile Include="Pages\SlideupPage.xaml.cs">
+      <DependentUpon>SlideupPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\MiscPage.xaml.cs">
@@ -180,20 +180,27 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="packages-release.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="TestAppStore_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppboyConfiguration.xml" />
+    <Content Include="Assets\Icons\close.png" />
     <Content Include="Assets\Icons\edit.png" />
     <Content Include="Assets\Icons\feed.png" />
     <Content Include="Assets\Icons\feedback.png" />
     <Content Include="Assets\Icons\profile.png" />
     <Content Include="Assets\Icons\misc.png" />
+    <Content Include="Assets\Images\Chevron\chevron.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-140.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="BugSense\BugSense - SDK License Agreement.txt" />
     <Content Include="Common\ReadMe.txt" />
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
@@ -222,35 +229,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AppboyPlatform.PCL, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\AppboyPlatform.Store.Release.1.0.0.2\lib\win81\AppboyPlatform.PCL.dll</HintPath>
+    <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDevelop' And '$(Configuration)'!='AppboyDeploy'">
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.0\lib\win81\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
-    <Reference Include="AppboyPlatform.Store, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\AppboyPlatform.Store.Release.1.0.0.2\lib\win81\AppboyPlatform.Store.dll</HintPath>
+    <Reference Include="AppboyPlatform.Store" Condition="'$(Configuration)'!='AppboyDevelop' And '$(Configuration)'!='AppboyDeploy'">
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.0\lib\win81\AppboyPlatform.Store.dll</HintPath>
     </Reference>
     <Reference Include="Lex.Db, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Lex.Db.1.1.4.0\lib\netcore45\Lex.Db.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\Lex.Db.1.1.4.0\lib\netcore45\Lex.Db.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NodaTime, Version=1.2.0.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\NodaTime.1.2.0\lib\portable-win+net40+sl4+wp7\NodaTime.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Extensions, Version=2.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Microsoft.Net.Http.2.2.18\lib\win8\System.Net.Http.Extensions.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\Microsoft.Net.Http.2.2.18\lib\win8\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Primitives, Version=4.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Microsoft.Net.Http.2.2.18\lib\win8\System.Net.Http.Primitives.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\Microsoft.Net.Http.2.2.18\lib\win8\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
@@ -358,17 +359,17 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="$(SolutionDir)\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets" Condition="Exists('$(SolutionDir)\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('$(SolutionDir)\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('$(SolutionDir)\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == AppboyDeploy (
-xcopy /Y /s /i $(SolutionDir)TestApp.Store $(SolutionDir)Public\appboy-windows-samples\Store /EXCLUDE:$(SolutionDir)xcopy-exclusion.txt
-xcopy /Y /s /i $(SolutionDir)TestApp.Store\packages-release.config $(SolutionDir)Public\appboy-windows-samples\Store\packages.config
+xcopy /Y /s /i "$(SolutionDir)TestApp.Store" "$(SolutionDir)Public\appboy-windows-samples\Store" /EXCLUDE:..\..\..\xcopy-exclusion.txt
+xcopy /Y /s /i "$(SolutionDir)TestApp.Store\packages-release.config" "$(SolutionDir)Public\appboy-windows-samples\Store\packages.config"
 )</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

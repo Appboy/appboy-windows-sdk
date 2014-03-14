@@ -13,9 +13,9 @@
     <x:String x:Key="AppBarProfile">Profile</x:String>
     <x:String x:Key="AppBarSettings">Settings</x:String>
     <x:String x:Key="AppBarMisc">Misc</x:String>
+    <x:String x:Key="AppBarSlideups">Slideups</x:String>
   </Page.Resources>
 
-  <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">-->
   <Grid>
     <Grid.ChildrenTransitions>
       <TransitionCollection>
@@ -90,18 +90,17 @@
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition/>
-          <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
           <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Orientation="Horizontal">
-          <Button AutomationProperties.Name="{StaticResource AppBarNewsFeed}" Width="140" Height="Auto" Click="Feed_Click" Style="{StaticResource ListAppBarButtonStyle}"></Button>
-          <Button AutomationProperties.Name="{StaticResource AppBarFeedback}" Width="140" Height="Auto" Click="Feedback_Click" Style="{StaticResource PostUpdateAppBarButtonStyle}"></Button>
-          <Button AutomationProperties.Name="{StaticResource AppBarProfile}" Width="140" Height="Auto" Click="Profile_Click" Style="{StaticResource ContactPresenceAppBarButtonStyle}"></Button>
-          <Button AutomationProperties.Name="{StaticResource AppBarSettings}" Width="140" Height="Auto" Click="Settings_Click" Style="{StaticResource BookmarksAppBarButtonStyle}"></Button>
-          <Button AutomationProperties.Name="{StaticResource AppBarMisc}" Width="140" Height="Auto" Click="Misc_Click" Style="{StaticResource BulletsAppBarButtonStyle}"></Button>
-        </StackPanel>
+          <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button AutomationProperties.Name="{StaticResource AppBarNewsFeed}" Width="140" Height="Auto" Click="Feed_Click" Style="{StaticResource ListAppBarButtonStyle}"/>
+            <Button AutomationProperties.Name="{StaticResource AppBarFeedback}" Width="140" Height="Auto" Click="Feedback_Click" Style="{StaticResource PostUpdateAppBarButtonStyle}"/>
+            <Button AutomationProperties.Name="{StaticResource AppBarProfile}" Width="140" Height="Auto" Click="Profile_Click" Style="{StaticResource ContactPresenceAppBarButtonStyle}"/>
+            <Button AutomationProperties.Name="{StaticResource AppBarMisc}" Width="140" Height="Auto" Click="Misc_Click" Style="{StaticResource BookmarksAppBarButtonStyle}"/>
+            <Button AutomationProperties.Name="{StaticResource AppBarSlideups}" Width="140" Height="Auto" Click="Slideups_Click" Style="{StaticResource BulletsAppBarButtonStyle}"/>
+          </StackPanel>
       </Grid>
     </AppBar>
   </Page.BottomAppBar>

@@ -25,17 +25,11 @@
     <system:String x:Key="ChangeUser">Change User</system:String>
   </phone:PhoneApplicationPage.Resources>
 
-  <Grid>
+  <Grid Background="#222222">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <Grid.Background>
-      <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-        <GradientStop Color="#4b4b4b" Offset="0"/>
-        <GradientStop Color="#363636" Offset="1"/>
-      </LinearGradientBrush>
-    </Grid.Background>
     <TextBlock Text="{StaticResource PageName}" Grid.Row="0" Margin="29, -7, 0, 0" Style="{StaticResource PhoneTextTitle2Style}"/>
     <StackPanel Grid.Row="1" VerticalAlignment="Center">
       <Button Width="300" Height="80" Margin="0,8,0,8" Background="#c74e2c" BorderThickness="0" Content="{StaticResource LogCustomEvent}" HorizontalAlignment="Center" Click="LogCustomEvent_Click"/>
@@ -43,7 +37,6 @@
       <Button Width="300" Height="80" Margin="0,8,0,8" Background="#a11b3c" BorderThickness="0" Content="{StaticResource SubmitFeedback}" HorizontalAlignment="Center" Click="SubmitFeedback_Click"/>
       <Button Width="300" Height="80" Margin="0,8,0,8" Background="#058e9e" BorderThickness="0" Content="{StaticResource Requesteed}" HorizontalAlignment="Center" Click="RequestFeed_Click"/>
       <Button Width="300" Height="80" Margin="0,8,0,8" Background="#96519e" BorderThickness="0" Content="{StaticResource RequestDataFlush}" HorizontalAlignment="Center" Click="RequestDataFlush_Click"/>
-      <Button Width="300" Height="80" Margin="0,8,0,8" Background="#1f5cc4" BorderThickness="0" Content="{StaticResource RequestSlideup}" HorizontalAlignment="Center" Click="RequestSlideup_Click"/>
       <Button Width="300" Height="80" Margin="0,8,0,8" Background="#cf0861" BorderThickness="0" Content="{StaticResource ChangeUser}" HorizontalAlignment="Center" Click="ChangeUser_Click"/>
     </StackPanel>
   </Grid>

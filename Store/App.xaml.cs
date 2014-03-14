@@ -23,15 +23,13 @@ namespace TestApp.Store {
   //                  and in a Resuming event handler. The CloseSession method must be called in a Suspending event handler.
   //                  
   // Appboy slideup: Slideup messages are handled by the Appboy SlideupManager, which is exposed as a property of the Appboy
-  //                 class. You can configure the SlideupManager to your applications needs. The slideup user interface is
-  //                 provided to the SlideupManager via a SlideupFactory. To use the default Appboy slideup UI, assign
-  //                 the AppboyUI.Store.Factories.SlideupFactory. The default Appboy slideup UI can the themed by overriding 
-  //                 the style elements in the Styles/OverrideStyles.xaml located in the AppboyUI.Store project. If you want
-  //                 to provide your own slideup experience, you can implement your own SlideupFactory. The slideup returned 
-  //                 from the Slideup factory is animated in from the bottom of the screen by the SlideupManager. When a slideup 
-  //                 is clicked, the SlideupClickedEvent is fired. The SlideupManager can also be given a SlideupReceivedDelegate 
-  //                 that can control which messages are displayed. To suppress all slideup messages from being displayed, assign 
-  //                 a SlideupReceivedDelegate which always returns false.
+  //                 class. You can configure the SlideupManager to your applications needs. The default UI used to display 
+  //                 slideup messages is provided by the AppboyUI.Phone.Factories.SlideupControlFactory class. The default UI 
+  //                 can be changed by either overriding the default slideup UI styles (see AppboyStyles.xaml) or by setting 
+  //                 a custom ISlideupControlFactory using the SlideupManager.SlideupControlFactory property. When a new slideup 
+  //                 arrives, the default behavior is to display it immediately (or put it onto to the top of a slideup stack 
+  //                 if another slideup is currently being displayed. The SlideupManager provides delegate methods that can be 
+  //                 used to override the default slideup handling.
   //
   // Appboy push notifications: Appboy exposes two push message events. One that fire when a push message is received 
   //                            (PushReceivedEvent) and another that fires when a push message is opened (ToastActivatedEvent). 
@@ -50,23 +48,23 @@ namespace TestApp.Store {
       // Assigns the event handler to be called when a push notification is opened.
       Appboy.SharedInstance.PushManager.ToastActivatedEvent += OnToastActivated;
 
-      // Sets up the Appboy slideup. The default slideup is provided by the AppboyUI.Store.Factories.SlideupFactory.
-      var customSlideupEnabled = (bool?) Windows.Storage.ApplicationData.Current.LocalSettings.Values[SettingsPage.CustomSlideupKey] ?? false;
-      if (!customSlideupEnabled) {
-        // Assigns the default Appboy slideup factory. The slideup will be displayed with the default Appboy slideup UI. The 
-        // default Appboy UI can be themed by editing the AppboyUI.Store stylesheet.
-        Appboy.SharedInstance.SlideupManager.SlideupFactory = new AppboyUI.Store.Factories.SlideupFactory();
-      } else {
+      // BASIC SLIDEUP INTEGRATION:
+      // Assigns the default Appboy slideup factory. The slideup will be displayed with the default Appboy slideup UI. The 
+      // default Appboy UI can be themed by editing the AppboyUI.Store stylesheet.
+      Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new AppboyUI.Store.Factories.SlideupControlFactory();
+      // Sets the feed modal that should be displayed when a slideup with ClickAction set to NEWS_FEED is clicked.
+      Appboy.SharedInstance.SlideupManager.FeedModal = new AppboyUI.Store.Popups.FeedPopup();
+      // Note: A NavigationEventHandler must be set in the OnLaunched method below in order to correctly reposition 
+      // slideups after page navigations. See below.
+
+      // ADVANCED SLIDEUP INTEGRATION OPTIONS:
+      // Sets up the Appboy slideup. The default slideup is provided by the AppboyUI.Store.Factories.SlideupControlFactory.
+      var customSlideupEnabled = (bool?)Windows.Storage.ApplicationData.Current.LocalSettings.Values[SlideupPage.CustomSlideupFactorySetKey] ?? false;
+      if (customSlideupEnabled) {
         // Assigns a custom Appboy slideup factory. A custom Appboy slideup factory can be used to change the default 
         // Appboy slideup user interface and behavior.
-        Appboy.SharedInstance.SlideupManager.SlideupFactory = new AppboyClasses.SlideupFactory();
+        Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new AppboyClasses.SlideupControlFactory();
       }
-      // Assigns a delegate that controls which slideups should be displayed.
-      Appboy.SharedInstance.SlideupManager.SetSlideupReceivedDelegate(SlideupReceivedDelegate);
-      // Assigns the event handler to be called when a slideup is clicked.
-      Appboy.SharedInstance.SlideupManager.SlideupClickedEvent += OnSlideupClicked;
-
-      // BugSense.BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(this), "w8cfda37");
     }
 
     /// <summary>
@@ -88,6 +86,7 @@ namespace TestApp.Store {
         rootFrame = new Frame();
         rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
         rootFrame.NavigationFailed += OnNavigationFailed;
+        rootFrame.Navigated += Appboy.SharedInstance.SlideupManager.NavigationEvent;
         if (e.PreviousExecutionState == ApplicationExecutionState.Terminated) {
           //TODO: Load state from previously suspended application
         }
