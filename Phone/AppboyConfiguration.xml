@@ -2,9 +2,10 @@
 
 <AppboyConfig>
   <!-- Debug APIKey -->
-  <ApiKey>045aa9b8-2894-4c79-8290-93de6a2946af</ApiKey>
+  <ApiKey>a7b57f4a-cfab-4264-8f0b-5d10949aa908</ApiKey>
   <!-- Production APIKey -->
-  <!-- <ApiKey>d167f4ff-a5cd-4a70-8863-5a3c9b3cf34e</ApiKey> -->
+  <!-- <ApiKey>a6b18590-14d2-4c02-b954-50a86ca7d1a7</ApiKey> -->
+  <AppboyServer>STAGING</AppboyServer>
   <PushChannelName>testpushchannel</PushChannelName>
   <PushServiceName>brianphonetest</PushServiceName>
 </AppboyConfig>

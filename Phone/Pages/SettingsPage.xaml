@@ -18,23 +18,25 @@
     <system:String x:Key="PageName">Settings</system:String>
     <system:String x:Key="ToastNotificationEnabled">Toast Enabled</system:String>
     <system:String x:Key="UseCustomSlideup">Use Custom Slideup</system:String>
+    <system:String x:Key="Back">Back</system:String>
   </phone:PhoneApplicationPage.Resources>
 
-  <Grid>
+  <Grid Background="#222222">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <Grid.Background>
-      <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-        <GradientStop Color="#4b4b4b" Offset="0"/>
-        <GradientStop Color="#363636" Offset="1"/>
-      </LinearGradientBrush>
-    </Grid.Background>
     <TextBlock Text="{StaticResource PageName}" Grid.Row="0" Margin="29, -7, 0, 0" Style="{StaticResource PhoneTextTitle2Style}"/>
     <StackPanel Grid.Row="1" VerticalAlignment="Center">
-      <CheckBox x:Name="ToastEnabledCheckBox" Width="300" Height="80" Margin="0,8,0,8" Content="{StaticResource ToastNotificationEnabled}" HorizontalAlignment="Center" VerticalContentAlignment="Top" Checked="ToastCheckBox_Checked" Unchecked="ToastCheckBox_Unchecked" IsChecked="{Binding ToastEnabledCheckBoxValue, Mode=Oneway}"/>
-      <CheckBox x:Name="UseCustomSlideupCheckBox" Width="300" Height="80" Margin="0,8,0,8" Content="{StaticResource UseCustomSlideup}" HorizontalAlignment="Center" VerticalContentAlignment="Top" Checked="SlideupCheckBox_Checked" Unchecked="SlideupCheckBox_Unchecked" IsChecked="{Binding UseCustomSlideupCheckBoxValue, Mode=Oneway}"/>
+      <CheckBox x:Name="ToastEnabledCheckBox" Content="{StaticResource ToastNotificationEnabled}" HorizontalAlignment="Center" Click="ToastEnabledCheckBox_Click"/>
    </StackPanel>
   </Grid>
+
+  <phone:PhoneApplicationPage.ApplicationBar>
+    <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized">
+      <shell:ApplicationBar.MenuItems>
+        <shell:ApplicationBarMenuItem Text="{StaticResource Back}" Click="Back_Click"/>
+      </shell:ApplicationBar.MenuItems>
+    </shell:ApplicationBar>
+  </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

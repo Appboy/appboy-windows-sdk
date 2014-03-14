@@ -20,6 +20,7 @@
     <system:String x:Key="AppBarProfile">Profile</system:String>
     <system:String x:Key="AppBarMisc">Misc</system:String>
     <system:String x:Key="AppBarSettings">Settings</system:String>
+    <system:String x:Key="AppBarSlideups">Slideups</system:String>
   </phone:PhoneApplicationPage.Resources>
 
   <Grid x:Name="LayoutRoot" Margin="20, 0, 20, 0">
@@ -83,6 +84,7 @@
       <shell:ApplicationBarIconButton IconUri="\Assets\Icons\misc.png" Text="{StaticResource AppBarMisc}" Click="Misc_Click"/>      
       <shell:ApplicationBar.MenuItems>
         <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSettings}" Click="Settings_Click"/>
+        <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSlideups}" Click="Slideups_Click"/>
       </shell:ApplicationBar.MenuItems>
     </shell:ApplicationBar>    
   </phone:PhoneApplicationPage.ApplicationBar>

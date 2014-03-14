@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{24f2104e-e390-4e2f-905d-c8d601413847}" Title="Appboy Sample App" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TestApp author" Description="" Publisher="TestApp" PublisherID="{70fa5e5d-78c1-41d8-b151-935f86e11b76}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{24f2104e-e390-4e2f-905d-c8d601413847}" Title="Appboy Sample App" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="TestApp author" Description="" Publisher="TestApp" PublisherID="{70fa5e5d-78c1-41d8-b151-935f86e11b76}">
+    <IconPath IsRelative="true" IsResource="false">Logo.scale-100.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -36,6 +36,9 @@
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>
+    <Extensions>
+      <Protocol Name="testapp" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" />
+    </Extensions>
     <ScreenResolutions>
       <ScreenResolution Name="ID_RESOLUTION_WVGA" />
       <ScreenResolution Name="ID_RESOLUTION_WXGA" />

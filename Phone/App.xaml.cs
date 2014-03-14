@@ -1,7 +1,5 @@
-﻿using AppboyPlatform.PCL.Managers;
-using AppboyPlatform.Phone;
+﻿using AppboyPlatform.Phone;
 using AppboyPlatform.Phone.Managers.PushArgs;
-using BugSense;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System;
@@ -24,15 +22,13 @@ namespace TestApp.Phone {
   //                  (Application_Deactivated(object, DeactivatedEventArgs) and Application_Closing(object, ClosingEventArgs)).
   //                  
   // Appboy slideup: Slideup messages are handled by the Appboy SlideupManager, which is exposed as a property of the Appboy
-  //                 class. You can configure the SlideupManager to your applications needs. The slideup user interface is
-  //                 provided to the SlideupManager via a SlideupFactory. To use the default Appboy slideup UI, assign
-  //                 the AppboyUI.Phone.Factories.SlideupFactory. The default Appboy slideup UI can the themed by overriding 
-  //                 the style elements in the Styles/OverrideStyles.xaml located in the AppboyUI.Phone project. If you want
-  //                 to provide your own slideup experience, you can implement your own SlideupFactory. The slideup returned 
-  //                 from the Slideup factory is animated in from the bottom of the screen by the SlideupManager. When a slideup 
-  //                 is clicked, the SlideupClickedEvent is fired. The SlideupManager can also be given a SlideupReceivedDelegate 
-  //                 that can control which messages are displayed. To suppress all slideup messages from being displayed, assign 
-  //                 a SlideupReceivedDelegate which always returns false.
+  //                 class. You can configure the SlideupManager to your applications needs. The default UI used to display 
+  //                 slideup messages is provided by the AppboyUI.Phone.Factories.SlideupControlFactory class. The default UI 
+  //                 can be changed by either overriding the default slideup UI styles (see Assets/Styles/AppboyOverride.xaml) 
+  //                 or by setting a custom ISlideupControlFactory using the SlideupManager.SlideupControlFactory property. 
+  //                 When a new slideup arrives, the default behavior is to display it immediately (or put it onto to the top 
+  //                 of a slideup stack if another slideup is currently being displayed. The SlideupManager provides delegate 
+  //                 methods that can be used to override the default slideup handling.
   //
   // Appboy push notifications: Appboy exposes two push message events. One that fire when a raw push message is received 
   //                            (RawPushReceivedEvent) and another that fires when a toast push message is received 
@@ -51,7 +47,7 @@ namespace TestApp.Phone {
       InitializeLanguage();
 
       if (Debugger.IsAttached) {
-        Application.Current.Host.Settings.EnableFrameRateCounter = true;
+        //Application.Current.Host.Settings.EnableFrameRateCounter = true;
         PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
       }
 
@@ -60,25 +56,33 @@ namespace TestApp.Phone {
       // Assigns the event handler to be called when a toast push notification is received.
       Appboy.SharedInstance.PushManager.ToastPushReceivedEvent += OnToastPushReceived;
 
-      // Sets up the Appboy slideup. The default slideup is provided by the AppboyUI.Phone.Factories.SlideupFactory.
-      bool? customSlideup;
-      if (IsolatedStorageSettings.ApplicationSettings.TryGetValue(Pages.SettingsPage.CustomSlideupKey, out customSlideup) && (bool) customSlideup) {
+      // BASIC SLIDEUP INTEGRATION:
+      // Assigns the default Appboy slideup factory. The slideup will be displayed with the default Appboy slideup UI. The 
+      // default Appboy UI can be themed by editing the AppboyUI.Phone stylesheet.
+      Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new AppboyUI.Phone.Factories.SlideupControlFactory();
+      // Note: A NavigationEventHandler must be set in the InitializePhoneApplication method below in order to correctly 
+      // reposition slideups after page navigations. See below.
+
+      // ADVANCED SLIDEUP INTEGRATION OPTIONS:
+      // Sets a custom SlideupManager SlideupFactory.
+      bool usingCustomSlideupFactory;
+      IsolatedStorageSettings.ApplicationSettings.TryGetValue(Pages.SlideupPage.CustomSlideupFactorySetKey, out usingCustomSlideupFactory);
+      if (usingCustomSlideupFactory) {
         // Assigns a custom Appboy slideup factory. A custom Appboy slideup factory can be used to change the default 
         // Appboy slideup user interface and behavior.
-        Appboy.SharedInstance.SlideupManager.SlideupFactory = new SlideupFactory();
-      } else {
-        // Assigns the default Appboy slideup factory. The slideup will be displayed with the default Appboy slideup UI. The 
-        // default Appboy UI can be themed by editing the AppboyUI.Phone stylesheet.
-        Appboy.SharedInstance.SlideupManager.SlideupFactory = new AppboyUI.Phone.Factories.SlideupFactory();
+        Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new SlideupControlFactory();
       }
-      // Assigns a delegate that controls which slideups should be displayed.
-      Appboy.SharedInstance.SlideupManager.SetSlideupReceivedDelegate(SlideupReceivedDelegate);
-      // Assigns the event handler to be called when a slideup is clicked.
-      Appboy.SharedInstance.SlideupManager.SlideupClickedEvent += OnSlideupClicked;
+      // Sets a custom URI mapper.
+      bool usingCustomUriMapper;
+      IsolatedStorageSettings.ApplicationSettings.TryGetValue(Pages.SlideupPage.UrlMapperSetKey, out usingCustomUriMapper);
+      if (usingCustomUriMapper) {
+        // Sets a custom URI mapper that allows slideups to navigate to the news feed integrated into the app.
+        Appboy.SharedInstance.UriMapper = new CustomUriMapper();
+      } 
     }
 
     private static void OnRawPushReceived(object sender, RawPushReceivedEventArgs args) {
-      using (System.IO.StreamReader reader = new System.IO.StreamReader(args.Notification.Body)) {
+      using (var reader = new System.IO.StreamReader(args.Notification.Body)) {
         var message = reader.ReadToEnd();
         Debug.WriteLine("Received a raw push notification with message {0} and we can action on it in the app.", message);
       }
@@ -91,14 +95,6 @@ namespace TestApp.Phone {
         args.ToastCollection.TryGetValue(key, out val);
         Debug.WriteLine("Toast push notification arguement key = {0} with value = {1}.", key, val);
       }
-    }
-
-    private bool SlideupReceivedDelegate(AppboyPlatform.PCL.Models.Incoming.Slideup slideup) {
-      return !slideup.Message.Contains("NoShow");
-    }
-
-    private static void OnSlideupClicked(object sender, SlideupClickedEventArgs args) {
-      Debug.WriteLine("Slideup clicked and we can action on it in the app.");
     }
 
     // Code to execute when the application is launching (eg, from Start)
@@ -165,6 +161,8 @@ namespace TestApp.Phone {
 
       // Detects and logs to Appboy any push open events.
       RootFrame.Navigated += Appboy.SharedInstance.PushManager.NavigationEvent;
+      // Repositions Slideups after page navigations.
+      RootFrame.Navigated += Appboy.SharedInstance.SlideupManager.NavigationEvent;
 
       // Ensure we don't initialize again
       phoneApplicationInitialized = true;

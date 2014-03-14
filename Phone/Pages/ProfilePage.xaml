@@ -24,19 +24,22 @@
     <system:String x:Key="GenderLabel">Gender:</system:String>
     <system:String x:Key="FavoriteColorLabel">Favorite Color:</system:String>
     <system:String x:Key="Save">Save</system:String>
+    <Style x:Key="Button" TargetType="Button">
+      <Setter Property="HorizontalAlignment" Value="Stretch"/>
+      <Setter Property="FontFamily" Value="Segoe WP"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="FontWeight" Value="Light"/>
+      <Setter Property="FontSize" Value="18"/>
+      <Setter Property="Foreground" Value="#ffffff"/>
+      <Setter Property="Background" Value="#80c7f4"/>
+    </Style>
   </phone:PhoneApplicationPage.Resources>
 
-  <Grid>
+  <Grid Background="#222222">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <Grid.Background>
-      <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-        <GradientStop Color="ForestGreen" Offset="0"/>
-        <GradientStop Color="Black" Offset="2.5"/>
-      </LinearGradientBrush>
-    </Grid.Background>
     <TextBlock Text="{StaticResource PageName}" Grid.Row="0" Margin="29, -7, 0, 0" Style="{StaticResource PhoneTextTitle2Style}"/>
     <Grid Grid.Row="1">
       <Grid.RowDefinitions>
@@ -70,7 +73,7 @@
       </StackPanel>
       <TextBlock Grid.Row="6" Grid.Column="0" Text="{StaticResource FavoriteColorLabel}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
       <TextBox Grid.Row="6" Grid.Column="1" Name="FavoriteColorTextBox" Margin="5,0,0,0" TextWrapping="Wrap" InputScope="Default"/>
-      <Button Grid.Row="7" Grid.ColumnSpan="2" Content="{StaticResource Save}" HorizontalAlignment="Center" Click="Save_Click"/>
+      <Button Grid.Row="7" Grid.ColumnSpan="2" Content="{StaticResource Save}" HorizontalAlignment="Right" Click="Save_Click" Style="{StaticResource Button}" Padding="20,10,20,10"/>      
     </Grid>
   </Grid>
 </phone:PhoneApplicationPage>
