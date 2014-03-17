@@ -2,8 +2,5 @@
 
 <AppboyConfig>
     <!-- Debug APIKey -->
-    <ApiKey>7b74e99a-a3ab-46f3-a3eb-c3bdd3b9c04d</ApiKey>
-    <!-- Production APIKey -->
-    <!-- <ApiKey>b1c736cd-6798-4387-a51a-7a663813ba6e</ApiKey> -->
-    <AppboyServer>STAGING</AppboyServer>
+    <ApiKey>9b136891-054e-45b0-a4a3-809a6f6b33c4</ApiKey>
 </AppboyConfig>
