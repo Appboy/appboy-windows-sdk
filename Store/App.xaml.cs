@@ -13,6 +13,8 @@ using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using AppboyUI.Store.Assets.Localization;
+using Windows.UI.Xaml.Resources;
 
 namespace TestApp.Store {
   // Appboy sessions: The Appboy class exposes methods to open and close sessions named OpenSession and CloseSession. These
@@ -42,6 +44,8 @@ namespace TestApp.Store {
       // Setting event handlers for the application lifecycle events. 
       this.Resuming += OnResuming;
       this.Suspending += OnSuspending;
+
+      CustomXamlResourceLoader.Current = new TranslationResourceProvider();
 
       // Assigns the event handler to be called when a push notification is received.
       Appboy.SharedInstance.PushManager.PushReceivedEvent += OnPushReceived;

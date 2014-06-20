@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -9,13 +9,16 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestApp.Store</RootNamespace>
     <AssemblyName>TestApp.Store</AssemblyName>
-    <DefaultLanguage>en</DefaultLanguage>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>TestApp.Store_StoreKey.pfx</PackageCertificateKeyFile>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <PackageCertificateThumbprint>0B1C584B5686EBBB21D3F273A4B13712B4FA8DED</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -181,6 +184,9 @@
     <None Include="packages.TestApp.Store.Windows.8.0.config">
       <SubType>Designer</SubType>
     </None>
+    <PRIResource Include="Strings\zh-cn\Resources.resw" />
+    <PRIResource Include="Strings\zh-hk\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
     <None Include="TestAppStore_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -195,8 +201,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-140.png" />
+    <Content Include="Assets\Logo.scale-180.png" />
+    <Content Include="Assets\Logo.scale-80.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-140.png" />
+    <Content Include="Assets\SplashScreen.scale-180.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="BugSense\BugSense - SDK License Agreement.txt" />
     <Content Include="Common\ReadMe.txt" />
@@ -209,29 +220,29 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppboyPlatform.PCL\AppboyPlatform.PCL.csproj" Condition="'$(Configuration)'=='AppboyDevelopWindows8' Or '$(Configuration)'=='AppboyDeployWindows8'">
+    <ProjectReference Include="..\AppboyPlatform.PCL\AppboyPlatform.PCL.csproj" Condition="'$(Configuration)'=='AppboyDebugWindows8' Or '$(Configuration)'=='AppboyReleaseWindows8'">
       <Project>{ec010a81-6bd5-4a32-a0fd-d2b3adce1616}</Project>
       <Name>AppboyPlatform.PCL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AppboyPlatform.Store\AppboyPlatform.Store.csproj" Condition="'$(Configuration)'=='AppboyDevelopWindows8' Or '$(Configuration)'=='AppboyDeployWindows8'">
+    <ProjectReference Include="..\AppboyPlatform.Store\AppboyPlatform.Store.csproj" Condition="'$(Configuration)'=='AppboyDebugWindows8' Or '$(Configuration)'=='AppboyReleaseWindows8'">
       <Project>{f7b54be6-7d8b-41b6-ba2d-8bdc422d86a0}</Project>
       <Name>AppboyPlatform.Store</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AppboyUI.Store\AppboyUI.Store.Windows.8.0.csproj" Condition="'$(Configuration)'=='AppboyDevelopWindows8' Or'$(Configuration)'=='AppboyDeployWindows8'">
+    <ProjectReference Include="..\AppboyUI.Store\AppboyUI.Store.Windows.8.0.csproj" Condition="'$(Configuration)'=='AppboyDebugWindows8' Or'$(Configuration)'=='AppboyReleaseWindows8'">
       <Project>{B4B2527A-DDDA-40A2-BE61-F15058E895F6}</Project>
       <Name>AppboyUI.Store</Name>
     </ProjectReference>
-    <ProjectReference Include="Externals\AppboyUI.Store\AppboyUI.Store.Windows.8.0.csproj" Condition="'$(Configuration)'!='AppboyDevelopWindows8' And '$(Configuration)'!='AppboyDeployWindows8'">
+    <ProjectReference Include="Externals\AppboyUI.Store\AppboyUI.Store.Windows.8.0.csproj" Condition="'$(Configuration)'!='AppboyDebugWindows8' And '$(Configuration)'!='AppboyReleaseWindows8'">
       <Project>{B4B2527A-DDDA-40A2-BE61-F15058E895F6}</Project>
       <Name>AppboyUI.Store</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDevelopWindows8' And '$(Configuration)'!='AppboyDeployWindows8'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.0\lib\win\AppboyPlatform.PCL.dll</HintPath>
+    <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDebugWindows8' And '$(Configuration)'!='AppboyReleaseWindows8'">
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.2\lib\win\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
-    <Reference Include="AppboyPlatform.Store" Condition="'$(Configuration)'!='AppboyDevelopWindows8' And '$(Configuration)'!='AppboyDeployWindows8'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.0\lib\win\AppboyPlatform.Store.dll</HintPath>
+    <Reference Include="AppboyPlatform.Store" Condition="'$(Configuration)'!='AppboyDebugWindows8' And '$(Configuration)'!='AppboyReleaseWindows8'">
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.2\lib\win\AppboyPlatform.Store.dll</HintPath>
     </Reference>
     <Reference Include="BugSense-W8">
       <HintPath>$(SolutionDir)\packages\BugSense.W8.3.6.0.1\lib\netcore45\BugSense-W8.dll</HintPath>
@@ -256,9 +267,9 @@
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelopWindows8|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebugWindows8|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\AppboyDevelopWindows8\</OutputPath>
+    <OutputPath>bin\AppboyDebugWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -268,9 +279,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelopWindows8|ARM'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebugWindows8|ARM'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\ARM\AppboyDevelopWindows8\</OutputPath>
+    <OutputPath>bin\ARM\AppboyDebugWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <NoStdLib>true</NoStdLib>
@@ -281,9 +292,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelopWindows8|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebugWindows8|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\AppboyDevelopWindows8\</OutputPath>
+    <OutputPath>bin\x64\AppboyDebugWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <NoStdLib>true</NoStdLib>
@@ -294,9 +305,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelopWindows8|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebugWindows8|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\AppboyDevelopWindows8\</OutputPath>
+    <OutputPath>bin\x86\AppboyDebugWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <NoStdLib>true</NoStdLib>
@@ -307,10 +318,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeployWindows8|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleaseWindows8|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\AppboyDeployWindows8\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <OutputPath>bin\AppboyReleaseWindows8\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -318,10 +329,11 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>true</Optimize>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeployWindows8|ARM'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleaseWindows8|ARM'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\ARM\AppboyDeployWindows8\</OutputPath>
+    <OutputPath>bin\ARM\AppboyReleaseWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <NoStdLib>true</NoStdLib>
@@ -332,9 +344,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeployWindows8|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleaseWindows8|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\AppboyDeployWindows8\</OutputPath>
+    <OutputPath>bin\x64\AppboyReleaseWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <NoStdLib>true</NoStdLib>
@@ -345,9 +357,60 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeployWindows8|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleaseWindows8|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\AppboyDeployWindows8\</OutputPath>
+    <OutputPath>bin\x86\AppboyReleaseWindows8\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhone|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\AppboyReleasePhone\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhone|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\AppboyReleasePhone\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhone|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\AppboyReleasePhone\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhone|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\AppboyReleasePhone\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <NoStdLib>true</NoStdLib>
@@ -366,10 +429,8 @@
     <Error Condition="Exists('$(SolutionDir)\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == AppboyDeployWindows8 (
-xcopy /Y /s /i "$(SolutionDir)TestApp.Store" "$(SolutionDir)Public\appboy-windows-samples\Store" /EXCLUDE:..\..\..\xcopy-exclusion.txt
-xcopy /Y /s /i "$(SolutionDir)TestApp.Store\packages.TestApp.Store-release.Windows.8.0.config" "$(SolutionDir)Public\appboy-windows-samples\Store\packages.TestApp.Store.Windows.8.0.config"
-)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
