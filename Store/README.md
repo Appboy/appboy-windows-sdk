@@ -59,7 +59,7 @@ Integer custom attributes can be incremented by using the `IncrementCustomAttrib
  - `void YourToastActivatedEventHandler(ToastNotification sender, AppboyToastActivatedEventArgs args);`
 
 ## Feedback
-1. Call the method `Task<IResult> Appboy.SharedInstance.PostFeedback(string replyToEmail, string message, bool isReportingABug)` to post feedback. The result can be determined by examining the IResult.
+1. Call the method `Task<IResult> Appboy.SharedInstance.SubmitFeedback(string replyToEmail, string message, bool isReportingABug)` to post feedback. The result can be determined by examining the IResult.
 
 <i><b>Note:</b> This must be called after the application has been initialized and is able to make network requests. Feedback will appear under the "Feedback" section of the Appboy dashboard.</i>
 
