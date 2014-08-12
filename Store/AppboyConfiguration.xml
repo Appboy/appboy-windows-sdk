@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <AppboyConfig>
-    <!-- Debug APIKey -->
-    <ApiKey>7b74e99a-a3ab-46f3-a3eb-c3bdd3b9c04d</ApiKey>
-    <!-- Production APIKey -->
-    <!-- <ApiKey>b1c736cd-6798-4387-a51a-7a663813ba6e</ApiKey> -->
-    <AppboyServer>STAGING</AppboyServer>
+    <ApiKey>c25963d0-cdd2-4813-babb-59a094d0cd2c</ApiKey>
 </AppboyConfig>

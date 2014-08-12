@@ -145,6 +145,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SocialFeedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -172,6 +176,9 @@
     </Compile>
     <Compile Include="Pages\SlideupPage.xaml.cs">
       <DependentUpon>SlideupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SocialFeedPage.xaml.cs">
+      <DependentUpon>SocialFeedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\MiscPage.xaml.cs">
@@ -238,10 +245,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDebug' And '$(Configuration)'!='AppboyRelease'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.2\lib\win81\AppboyPlatform.PCL.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.1.0\lib\win81\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
     <Reference Include="AppboyPlatform.Store" Condition="'$(Configuration)'!='AppboyDebug' And '$(Configuration)'!='AppboyRelease'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.0.2\lib\win81\AppboyPlatform.Store.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.1.0\lib\win81\AppboyPlatform.Store.dll</HintPath>
     </Reference>
     <Reference Include="Lex.Db, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

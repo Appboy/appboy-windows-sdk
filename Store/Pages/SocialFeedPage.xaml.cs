@@ -1,17 +1,16 @@
-﻿using Windows.UI.Xaml;
+﻿using TestApp.Store.Common;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using TestApp.Store.Common;
 
 namespace TestApp.Store.Pages {
-  public sealed partial class MainPage : Page {
+  public sealed partial class AppboySocialFeedPage : Page {
     private NavigationHelper _navigationHelper;
 
     public NavigationHelper NavigationHelper {
       get { return _navigationHelper; }
     }
 
-    public MainPage() {
+    public AppboySocialFeedPage() {
       InitializeComponent();
       _navigationHelper = new NavigationHelper(this);
       _navigationHelper.LoadState += navigationHelper_LoadState;
@@ -31,28 +30,5 @@ namespace TestApp.Store.Pages {
       _navigationHelper.OnNavigatedFrom(e);
     }
     #endregion
-
-    private void Feed_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(AppboyFeedPage));
-    }
-    private void SocialFeed_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(AppboySocialFeedPage));
-    }
-    
-    private void Feedback_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(AppboyFeedbackPage));
-    }
-
-    private void Profile_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(ProfilePage));
-    }
-
-    private void Misc_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(MiscPage));
-    }
-
-    private void Slideups_Click(object sender, RoutedEventArgs e) {
-      Frame.Navigate(typeof(SlideupPage));
-    }
   }
 }
