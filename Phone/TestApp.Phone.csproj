@@ -397,10 +397,10 @@
   <ItemGroup />
   <ItemGroup>
     <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDebug' And '$(Configuration)'!='AppboyReleasePhone'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.1.0\lib\wp80\AppboyPlatform.PCL.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.1.1\lib\wp80\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
     <Reference Include="AppboyPlatform.Phone" Condition="'$(Configuration)'!='AppboyDebug' And '$(Configuration)'!='AppboyReleasePhone'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.1.0\lib\wp80\AppboyPlatform.Phone.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.1.1\lib\wp80\AppboyPlatform.Phone.dll</HintPath>
     </Reference>
     <Reference Include="BugSense-WP8, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
