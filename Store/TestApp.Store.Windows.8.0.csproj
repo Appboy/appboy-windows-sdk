@@ -246,10 +246,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDebugWindows8' And '$(Configuration)'!='AppboyReleaseWindows8'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.1.0\lib\win\AppboyPlatform.PCL.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.1.1\lib\win\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
     <Reference Include="AppboyPlatform.Store" Condition="'$(Configuration)'!='AppboyDebugWindows8' And '$(Configuration)'!='AppboyReleaseWindows8'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.1.0\lib\win\AppboyPlatform.Store.dll</HintPath>
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Store.Release.1.1.1.1\lib\win\AppboyPlatform.Store.dll</HintPath>
     </Reference>
     <Reference Include="BugSense-W8">
       <HintPath>$(SolutionDir)\packages\BugSense.W8.3.6.0.1\lib\netcore45\BugSense-W8.dll</HintPath>
