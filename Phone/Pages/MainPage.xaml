@@ -21,6 +21,7 @@
     <system:String x:Key="AppBarMisc">Misc</system:String>
     <system:String x:Key="AppBarSettings">Settings</system:String>
     <system:String x:Key="AppBarSlideups">Slideups</system:String>
+    <system:String x:Key="AppBarSocialFeed">Social Feed</system:String>
   </phone:PhoneApplicationPage.Resources>
 
   <Grid x:Name="LayoutRoot" Margin="20, 0, 20, 0">
@@ -85,6 +86,7 @@
       <shell:ApplicationBar.MenuItems>
         <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSettings}" Click="Settings_Click"/>
         <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSlideups}" Click="Slideups_Click"/>
+        <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSocialFeed}" Click="Social_Feed_Click"/>
       </shell:ApplicationBar.MenuItems>
     </shell:ApplicationBar>    
   </phone:PhoneApplicationPage.ApplicationBar>

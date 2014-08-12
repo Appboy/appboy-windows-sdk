@@ -41,5 +41,9 @@ namespace TestApp.Phone.Pages {
     private void Slideups_Click(object sender, EventArgs e) {
       NavigationService.Navigate(new Uri("/Pages/SlideupPage.xaml", UriKind.Relative));
     }
+
+    private void Social_Feed_Click(object sender, EventArgs e) {
+      NavigationService.Navigate(new Uri("/Pages/SocialFeedPage.xaml", UriKind.Relative));
+    }
   }
 }

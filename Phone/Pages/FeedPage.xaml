@@ -15,6 +15,35 @@
   shell:SystemTray.IsVisible="True">
 
   <Grid Background="#222222">
-    <appboy:Feed/>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <StackPanel Grid.Row="0" Orientation="Horizontal">
+      <Grid Width="478">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <CheckBox Content="Social" Name="Social"  Grid.Column="0"  Checked="Checkbox_Checked" Unchecked="Checkbox_Unchecked"/>
+        <CheckBox Content="News" Name="News"  Checked="Checkbox_Checked" Grid.Column="1" Unchecked="Checkbox_Unchecked"/>
+        <CheckBox Content="Ads" Name="Advertising"  Grid.Column="2" Checked="Checkbox_Checked" Unchecked="Checkbox_Unchecked"/>
+      </Grid>
+    </StackPanel>
+    <StackPanel Grid.Row="1" Orientation="Horizontal">
+      <Grid Width="478">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <CheckBox Content="Ann." Name="Announcements"  Grid.Column="0"  Checked="Checkbox_Checked" Unchecked="Checkbox_Unchecked"/>
+        <CheckBox Content="All" Name="All"  Checked="Checkbox_Checked" Grid.Column="1" Unchecked="Checkbox_Unchecked"/>
+        <CheckBox Content="No Cat." Name="No_Category"  Grid.Column="2" Checked="Checkbox_Checked" Unchecked="Checkbox_Unchecked"/>
+      </Grid>
+    </StackPanel>
+    <appboy:Feed Name="AppboyFeed"  Grid.Row="2"/>
   </Grid>
 </phone:PhoneApplicationPage>

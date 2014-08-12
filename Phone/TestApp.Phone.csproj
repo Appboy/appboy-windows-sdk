@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -15,8 +15,7 @@
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>true</SilverlightApplication>
-    <SupportedCultures>
-    </SupportedCultures>
+    <SupportedCultures>zh-CN%3bzh-TW</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>TestApp_$(Configuration)_$(Platform).xap</XapFilename>
@@ -91,9 +90,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelop|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\AppboyDevelop\</OutputPath>
+    <OutputPath>bin\AppboyDebug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -101,9 +100,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelop|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\AppboyDevelop\</OutputPath>
+    <OutputPath>bin\x86\AppboyDebug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -111,9 +110,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelop|ARM'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebug|ARM'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\ARM\AppboyDevelop\</OutputPath>
+    <OutputPath>bin\ARM\AppboyDebug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -121,8 +120,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeploy|AnyCPU'">
-    <OutputPath>bin\AppboyDeploy\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhone|AnyCPU'">
+    <OutputPath>bin\AppboyReleasePhone\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <Optimize>true</Optimize>
     <NoStdLib>true</NoStdLib>
@@ -131,8 +130,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeploy|x86'">
-    <OutputPath>bin\x86\AppboyDeploy\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhone|x86'">
+    <OutputPath>bin\x86\AppboyReleasePhone\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <Optimize>true</Optimize>
     <NoStdLib>true</NoStdLib>
@@ -141,8 +140,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeploy|ARM'">
-    <OutputPath>bin\ARM\AppboyDeploy\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhone|ARM'">
+    <OutputPath>bin\ARM\AppboyReleasePhone\</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <Optimize>true</Optimize>
     <NoStdLib>true</NoStdLib>
@@ -151,9 +150,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelopWindows8|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebugWindows8|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\AppboyDevelopWindows8\</OutputPath>
+    <OutputPath>bin\AppboyDebugWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -161,9 +160,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelopWindows8|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebugWindows8|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\AppboyDevelopWindows8\</OutputPath>
+    <OutputPath>bin\x86\AppboyDebugWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -171,9 +170,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDevelopWindows8|ARM'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDebugWindows8|ARM'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\ARM\AppboyDevelopWindows8\</OutputPath>
+    <OutputPath>bin\ARM\AppboyDebugWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -181,9 +180,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeployWindows8|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhoneWindows8|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\AppboyDeployWindows8\</OutputPath>
+    <OutputPath>bin\AppboyReleasePhoneWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -191,9 +190,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeployWindows8|x86'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhoneWindows8|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\AppboyDeployWindows8\</OutputPath>
+    <OutputPath>bin\x86\AppboyReleasePhoneWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
@@ -201,12 +200,42 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyDeployWindows8|ARM'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhoneWindows8|ARM'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\ARM\AppboyDeployWindows8\</OutputPath>
+    <OutputPath>bin\ARM\AppboyReleasePhoneWindows8\</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhonePhone|AnyCPU'">
+    <OutputPath>bin\AppboyReleasePhonePhone\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhonePhone|x86'">
+    <OutputPath>bin\x86\AppboyReleasePhonePhone\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AppboyReleasePhonePhone|ARM'">
+    <OutputPath>bin\ARM\AppboyReleasePhonePhone\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
@@ -241,6 +270,9 @@
     </Compile>
     <Compile Include="Pages\SlideupPage.xaml.cs">
       <DependentUpon>SlideupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SocialFeedPage.xaml.cs">
+      <DependentUpon>SocialFeedPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -291,6 +323,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SocialFeedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages-release.config">
@@ -337,32 +373,34 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\AppResources.zh-TW.resx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppboyPlatform.PCL\AppboyPlatform.PCL.csproj" Condition="'$(Configuration)'=='AppboyDevelop' Or '$(Configuration)'=='AppboyDeploy'">
+    <ProjectReference Include="..\AppboyPlatform.PCL\AppboyPlatform.PCL.csproj" Condition="'$(Configuration)'=='AppboyDebug' Or '$(Configuration)'=='AppboyReleasePhone'">
       <Project>{EC010A81-6BD5-4A32-A0FD-D2B3ADCE1616}</Project>
       <Name>AppboyPlatform.PCL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AppboyPlatform.Phone\AppboyPlatform.Phone.csproj" Condition="'$(Configuration)'=='AppboyDevelop' Or '$(Configuration)'=='AppboyDeploy'">
+    <ProjectReference Include="..\AppboyPlatform.Phone\AppboyPlatform.Phone.csproj" Condition="'$(Configuration)'=='AppboyDebug' Or '$(Configuration)'=='AppboyReleasePhone'">
       <Project>{5CBE6D87-1FD0-4DF8-9FB3-1FD3E31AA208}</Project>
       <Name>AppboyPlatform.Phone</Name>
     </ProjectReference>
-    <ProjectReference Include="Externals\AppboyUI.Phone\AppboyUI.Phone.csproj">
+    <ProjectReference Include="..\AppboyUI.Phone\AppboyUI.Phone.csproj" Condition="'$(Configuration)'=='AppboyDebug' Or '$(Configuration)'=='AppboyReleasePhone'">
       <Project>{F3F057FE-0807-43FB-B214-4E67E27D5BA6}</Project>
       <Name>AppboyUI.Phone</Name>
     </ProjectReference>
-    <ProjectReference Include="Externals\AppboyUI.Phone\AppboyUI.Phone.csproj" Condition="'$(Configuration)'!='AppboyDevelop' And '$(Configuration)'!='AppboyDeploy'">
+    <ProjectReference Include="Externals\AppboyUI.Phone\AppboyUI.Phone.csproj" Condition="'$(Configuration)'!='AppboyDebug' And '$(Configuration)'!='AppboyReleasePhone'">
       <Project>{F3F057FE-0807-43FB-B214-4E67E27D5BA6}</Project>
       <Name>AppboyUI.Phone</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDevelop' And '$(Configuration)'!='AppboyDeploy'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.0.1\lib\wp80\AppboyPlatform.PCL.dll</HintPath>
+    <Reference Include="AppboyPlatform.PCL" Condition="'$(Configuration)'!='AppboyDebug' And '$(Configuration)'!='AppboyReleasePhone'">
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.1.0\lib\wp80\AppboyPlatform.PCL.dll</HintPath>
     </Reference>
-    <Reference Include="AppboyPlatform.Phone" Condition="'$(Configuration)'!='AppboyDevelop' And '$(Configuration)'!='AppboyDeploy'">
-      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.0.1\lib\wp80\AppboyPlatform.Phone.dll</HintPath>
+    <Reference Include="AppboyPlatform.Phone" Condition="'$(Configuration)'!='AppboyDebug' And '$(Configuration)'!='AppboyReleasePhone'">
+      <HintPath>$(SolutionDir)\packages\AppboyPlatform.Phone.Release.1.1.1.0\lib\wp80\AppboyPlatform.Phone.dll</HintPath>
     </Reference>
     <Reference Include="BugSense-WP8, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -370,6 +408,10 @@
     </Reference>
     <Reference Include="Lex.Db">
       <HintPath>$(SolutionDir)\packages\Lex.Db.1.1.4.0\lib\wp8\Lex.Db.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -408,9 +450,7 @@
     <Error Condition="Exists('$(SolutionDir)\packages\Microsoft.Bcl.Build.1.0.13\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == AppboyDeploy (
-xcopy /Y /s /i "$(SolutionDir)$(ProjectName)" "$(SolutionDir)Public\appboy-windows-samples\Phone" /EXCLUDE:..\..\..\xcopy-exclusion.txt
-xcopy /Y /s /i "$(SolutionDir)$(ProjectName)\packages-release.config" "$(SolutionDir)Public\appboy-windows-samples\Phone\packages.config"
-)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

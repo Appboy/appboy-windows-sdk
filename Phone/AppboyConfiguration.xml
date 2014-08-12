@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <AppboyConfig>
-  <!-- Debug APIKey -->
-  <ApiKey>045aa9b8-2894-4c79-8290-93de6a2946af</ApiKey>
+  <ApiKey>d167f4ff-a5cd-4a70-8863-5a3c9b3cf34e</ApiKey>
   <PushChannelName>testpushchannel</PushChannelName>
   <PushServiceName>brianphonetest</PushServiceName>
 </AppboyConfig>
