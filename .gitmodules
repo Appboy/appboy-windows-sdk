@@ -6,3 +6,6 @@
 	path = Phone/Externals/AppboyUI.Phone
 	url = git@github.com:Appboy/appboy-windows-phone-ui.git
 	branch = master
+[submodule "Universal/Externals/AppboyUI.Universal"]
+	path = Universal/Externals/AppboyUI.Universal
+	url = git@github.com:Appboy/appboy-windows-universal-ui.git
