@@ -1,0 +1,55 @@
+﻿<Page
+  x:Name="pageRoot"
+  x:Class="TestApp.Store.Pages.MiscPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d">
+
+  <Page.Resources>
+    <x:String x:Key="PageName">Misc</x:String>
+    <x:String x:Key="LogCustomEvent">Log Custom Event</x:String>
+    <x:String x:Key="LogPurchase">Log Purchase</x:String>
+    <x:String x:Key="SubmitFeedback">Submit Feedback</x:String>
+    <x:String x:Key="Requesteed">Request Feed</x:String>
+    <x:String x:Key="RequestDataFlush">Request Data Flush</x:String>
+    <x:String x:Key="RequestSlideup">Request Slideup</x:String>
+    <x:String x:Key="ChangeUser">Change User</x:String>
+  </Page.Resources>
+
+  <Grid Background="#222222">
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="140"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="AUto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Button Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}" Width="57"
+        Style="{StaticResource BackButtonStyle}"
+        VerticalAlignment="Top"
+        AutomationProperties.Name="Back"
+        AutomationProperties.AutomationId="BackButton"
+        AutomationProperties.ItemType="Navigation Button"/>
+      <TextBlock Text="{StaticResource PageName}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" 
+        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+    </Grid>
+    <StackPanel Grid.Row="1" VerticalAlignment="Center">
+      <Button Width="200" Height="50" Margin="0,8,0,8" Background="#c74e2c" BorderThickness="0" Content="{StaticResource LogCustomEvent}" HorizontalAlignment="Center" Click="LogCustomEvent_Click"/>
+      <Button Width="200" Height="50" Margin="0,8,0,8" Background="#058e05" BorderThickness="0" Content="{StaticResource LogPurchase}" HorizontalAlignment="Center" Click="LogPurchase_Click"/>
+      <Button Width="200" Height="50" Margin="0,8,0,8" Background="#a11b3c" BorderThickness="0" Content="{StaticResource SubmitFeedback}" HorizontalAlignment="Center" Click="SubmitFeedback_Click"/>
+      <Button Width="200" Height="50" Margin="0,8,0,8" Background="#058e9e" BorderThickness="0" Content="{StaticResource Requesteed}" HorizontalAlignment="Center" Click="RequestFeed_Click"/>
+      <Button Width="200" Height="50" Margin="0,8,0,8" Background="#96519e" BorderThickness="0" Content="{StaticResource RequestDataFlush}" HorizontalAlignment="Center" Click="RequestDataFlush_Click"/>
+      <Button Width="200" Height="50" Margin="0,8,0,8" Background="#cf0861" BorderThickness="0" Content="{StaticResource ChangeUser}" HorizontalAlignment="Center" Click="ChangeUser_Click"/>
+    </StackPanel>
+  </Grid>
+</Page>

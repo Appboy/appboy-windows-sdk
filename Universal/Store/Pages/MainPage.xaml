@@ -1,0 +1,109 @@
+﻿<Page
+  x:Name="pageRoot"
+  x:Class="TestApp.Store.Pages.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d">
+
+  <Page.Resources>
+    <x:String x:Key="AppBarFeedback">Feedback</x:String>
+    <x:String x:Key="AppBarNewsFeed">News Feed</x:String>
+    <x:String x:Key="AppBarSocialFeed">Social Feed</x:String>
+    <x:String x:Key="AppBarProfile">Profile</x:String>
+    <x:String x:Key="AppBarSettings">Settings</x:String>
+    <x:String x:Key="AppBarMisc">Misc</x:String>
+    <x:String x:Key="AppBarSlideups">Slideups</x:String>
+  </Page.Resources>
+
+  <Grid>
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="140"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}" Width="57"
+      Style="{StaticResource BackButtonStyle}"
+        VerticalAlignment="Top"
+        AutomationProperties.Name="Back"
+        AutomationProperties.AutomationId="BackButton"
+        AutomationProperties.ItemType="Navigation Button"/>
+      <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" 
+        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+    </Grid>
+    <Grid Grid.Row="1" Margin="0,0,0,50">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" x:Name="FirstRow"/>
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" x:Name="FirstColumn"/>
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <Rectangle Grid.Row="0" Grid.Column="0" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="{Binding ActualWidth, Mode=OneWay, ElementName=FirstColumn}" Width="{Binding ActualHeight, Mode=OneWay, ElementName=FirstRow}">
+        <Rectangle.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Red" Offset="0"/>
+            <GradientStop Color="White" Offset="2.5"/>
+          </LinearGradientBrush>
+        </Rectangle.Fill>
+      </Rectangle>
+      <Rectangle Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="{Binding ActualWidth, Mode=OneWay, ElementName=FirstColumn}" Width="{Binding ActualHeight, Mode=OneWay, ElementName=FirstRow}">
+        <Rectangle.Fill>
+          <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+            <GradientStop Color="Green"/>
+            <GradientStop Color="White" Offset="2.5"/>
+          </LinearGradientBrush>
+        </Rectangle.Fill>
+      </Rectangle>
+      <Rectangle Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" Height="{Binding ActualWidth, Mode=OneWay, ElementName=FirstColumn}" Width="{Binding ActualHeight, Mode=OneWay, ElementName=FirstRow}">
+        <Rectangle.Fill>
+          <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+            <GradientStop Color="Blue"/>
+            <GradientStop Color="White" Offset="2.5"/>
+          </LinearGradientBrush>
+        </Rectangle.Fill>
+      </Rectangle>
+      <Rectangle Grid.Row="1" Grid.Column="1" Margin="10"  VerticalAlignment="Top" HorizontalAlignment="Left" Height="{Binding ActualWidth, Mode=OneWay, ElementName=FirstColumn}" Width="{Binding ActualHeight, Mode=OneWay, ElementName=FirstRow}">
+        <Rectangle.Fill>
+          <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+            <GradientStop Color="Yellow"/>
+            <GradientStop Color="White" Offset="2.5"/>
+          </LinearGradientBrush>
+        </Rectangle.Fill>
+      </Rectangle>
+    </Grid>
+  </Grid>
+  <Page.BottomAppBar>
+    <AppBar>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right">
+          <Button AutomationProperties.Name="{StaticResource AppBarNewsFeed}" Width="140" Height="Auto" Click="Feed_Click" Style="{StaticResource ListAppBarButtonStyle}"/>
+          <Button AutomationProperties.Name="{StaticResource AppBarSocialFeed}" Width="140" Height="Auto" Click="SocialFeed_Click" Style="{StaticResource ListAppBarButtonStyle}"/>
+          <Button AutomationProperties.Name="{StaticResource AppBarFeedback}" Width="140" Height="Auto" Click="Feedback_Click" Style="{StaticResource PostUpdateAppBarButtonStyle}"/>
+          <Button AutomationProperties.Name="{StaticResource AppBarProfile}" Width="140" Height="Auto" Click="Profile_Click" Style="{StaticResource ContactPresenceAppBarButtonStyle}"/>
+          <Button AutomationProperties.Name="{StaticResource AppBarMisc}" Width="140" Height="Auto" Click="Misc_Click" Style="{StaticResource BookmarksAppBarButtonStyle}"/>
+          <Button AutomationProperties.Name="{StaticResource AppBarSlideups}" Width="140" Height="Auto" Click="Slideups_Click" Style="{StaticResource BulletsAppBarButtonStyle}"/>
+        </StackPanel>
+      </Grid>
+    </AppBar>
+  </Page.BottomAppBar>
+</Page>

@@ -1,0 +1,83 @@
+﻿<Page
+  x:Name="pageRoot"
+  x:Class="TestApp.Store.Pages.ProfilePage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d">
+
+  <Page.Resources>
+    <x:String x:Key="PageTitle">Profile</x:String>
+    <x:String x:Key="FirstNameLabel">First Name:</x:String>
+    <x:String x:Key="LastNameLabel">Last Name:</x:String>
+    <x:String x:Key="EmailLabel">Email:</x:String>
+    <x:String x:Key="BioLabel">Bio:</x:String>
+    <x:String x:Key="PhoneNumberLabel">Phone Number:</x:String>
+    <x:String x:Key="GenderLabel">Gender:</x:String>
+    <x:String x:Key="FavoriteColorLabel">Favorite Color:</x:String>
+    <x:String x:Key="Save">Save</x:String>
+    <Style x:Key="Label" TargetType="TextBlock">
+      <Setter Property="FontFamily" Value="Segoe WP"/>
+      <Setter Property="FontWeight" Value="Light"/>
+      <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <Style x:Key="RadioButton" TargetType="RadioButton">
+      <Setter Property="FontFamily" Value="Segoe WP"/>
+      <Setter Property="FontWeight" Value="Light"/>
+      <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="Button" TargetType="Button">
+      <Setter Property="HorizontalAlignment" Value="Stretch"/>
+      <Setter Property="FontFamily" Value="Segoe WP"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="FontWeight" Value="Light"/>
+      <Setter Property="FontSize" Value="20"/>
+      <Setter Property="Foreground" Value="#ffffff"/>
+      <Setter Property="Background" Value="#80c7f4"/>
+    </Style>
+  </Page.Resources>
+
+  <Grid Background="#222222">
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="{StaticResource FirstNameLabel}" Style="{StaticResource Label}" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Global User Interface"/>
+      <TextBox Grid.Row="0" Grid.Column="1" Name="FirstNameTextBox" Margin="5" TextWrapping="Wrap" InputScope="Default"/>
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="{StaticResource LastNameLabel}" Style="{StaticResource Label}" VerticalAlignment="Center"  HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="1" Grid.Column="1" Name="LastNameTextBox" Margin="5" TextWrapping="Wrap" InputScope="Default"/>
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="{StaticResource EmailLabel}" Style="{StaticResource Label}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="2" Grid.Column="1" Name="EmailTextBox" Margin="5" TextWrapping="Wrap" InputScope="EmailSmtpAddress"/>
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="{StaticResource BioLabel}" Style="{StaticResource Label}" Margin="0,2,0,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="3" Grid.Column="1" Name="BioTextBox" Height="75" Margin="5" TextWrapping="Wrap" InputScope="Default" AcceptsReturn="True"/>
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="{StaticResource PhoneNumberLabel}" Style="{StaticResource Label}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="4" Grid.Column="1" Name="PhoneNumberTextBox" Margin="5" TextWrapping="Wrap" InputScope="TelephoneNumber"/>
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="{StaticResource GenderLabel}" Style="{StaticResource Label}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+      <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Vertical">
+        <RadioButton Margin="10,0,0,0" GroupName="GenderRadioButtonGroup" x:Name="GenderMale" Content="Male"/>
+        <RadioButton Margin="10,0,0,0" GroupName="GenderRadioButtonGroup" x:Name="GenderFemale" Content="Female"/>
+      </StackPanel>
+      <TextBlock Grid.Row="6" Grid.Column="0" Text="{StaticResource FavoriteColorLabel}" Style="{StaticResource Label}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="6" Grid.Column="1" Name="FavoriteColorTextBox" Margin="5" TextWrapping="Wrap" InputScope="Default"/>
+      <Button Grid.Row="7" Content="{StaticResource Save}" Style="{StaticResource Button}" HorizontalAlignment="Right" Click="Save_Click" Grid.Column="1" Margin="0,0.333,5,0.167"/>
+    </Grid>
+  </Grid>
+</Page>
