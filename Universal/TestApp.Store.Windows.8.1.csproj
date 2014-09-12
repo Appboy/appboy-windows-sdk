@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -240,7 +240,7 @@
       <Project>{f7b54be6-7d8b-41b6-ba2d-8bdc422d86a0}</Project>
       <Name>AppboyPlatform.Universal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AppboyUI.Universal\AppboyUI.Universal.csproj" Condition="'$(Configuration)'=='AppboyDebug' Or '$(Configuration)'=='AppboyRelease'">
+    <ProjectReference Include="Externals\AppboyUI.Universal\AppboyUI.Universal.csproj" Condition="'$(Configuration)'=='AppboyDebug' Or '$(Configuration)'=='AppboyRelease'">
       <Project>{aff6cb75-d9a3-4aa6-8bcf-3dc78b1b1878}</Project>
       <Name>AppboyUI.Universal</Name>
     </ProjectReference>
