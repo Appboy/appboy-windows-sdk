@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<AppboyConfig>
+  <ApiKey>3d7d9ac3-aaff-4731-afe5-cc3b2c76e52d</ApiKey>
+  <AppboyServer>STAGING</AppboyServer>
+  <DisableLocationCollection>false</DisableLocationCollection>
+</AppboyConfig>

@@ -1,6 +1,0 @@
-MainPackage=C:\Users\Brian Wheeler\Development\windows-phone-sdk\TestApp.Universal\bin\AppboyRelease\TestApp.Store.Windows.8.1_1.1.0.1_Bundle\TestApp.Store.Windows.8.1_1.1.0.1_AnyCPU_AppboyRelease.appx
-SymbolPackage=C:\Users\Brian Wheeler\Development\windows-phone-sdk\TestApp.Universal\AppPackages\TestApp.Store.Windows.8.1_1.1.0.1_AppboyRelease_Test\TestApp.Store.Windows.8.1_1.1.0.1_AnyCPU_AppboyRelease.appxsym
-ResourcePack=C:\Users\Brian Wheeler\Development\windows-phone-sdk\TestApp.Universal\bin\AppboyRelease\TestApp.Store.Windows.8.1_1.1.0.1_Bundle\TestApp.Store.Windows.8.1_1.1.0.1_language-zh-hans.appx
-ResourcePack=C:\Users\Brian Wheeler\Development\windows-phone-sdk\TestApp.Universal\bin\AppboyRelease\TestApp.Store.Windows.8.1_1.1.0.1_Bundle\TestApp.Store.Windows.8.1_1.1.0.1_language-zh-hant.appx
-ResourcePack=C:\Users\Brian Wheeler\Development\windows-phone-sdk\TestApp.Universal\bin\AppboyRelease\TestApp.Store.Windows.8.1_1.1.0.1_Bundle\TestApp.Store.Windows.8.1_1.1.0.1_scale-140.appx
-ResourcePack=C:\Users\Brian Wheeler\Development\windows-phone-sdk\TestApp.Universal\bin\AppboyRelease\TestApp.Store.Windows.8.1_1.1.0.1_Bundle\TestApp.Store.Windows.8.1_1.1.0.1_scale-180.appx

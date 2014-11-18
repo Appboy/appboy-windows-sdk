@@ -1,0 +1,4 @@
+MainPackage=C:\Users\Brian Wheeler\Development\windows-phone-sdk\AppboyTestApps.Universal\AppboyTestApps.Universal.Windows\bin\Release\Windows_1.2.0.0_Bundle\Windows_1.2.0.0_AnyCPU_AppboyRelease.appx
+SymbolPackage=C:\Users\Brian Wheeler\Development\windows-phone-sdk\AppboyTestApps.Universal\AppboyTestApps.Universal.Windows\AppPackages\Windows_1.2.0.0_AppboyRelease_Test\Windows_1.2.0.0_AnyCPU_AppboyRelease.appxsym
+ResourcePack=C:\Users\Brian Wheeler\Development\windows-phone-sdk\AppboyTestApps.Universal\AppboyTestApps.Universal.Windows\bin\Release\Windows_1.2.0.0_Bundle\Windows_1.2.0.0_language-zh-hans.appx
+ResourcePack=C:\Users\Brian Wheeler\Development\windows-phone-sdk\AppboyTestApps.Universal\AppboyTestApps.Universal.Windows\bin\Release\Windows_1.2.0.0_Bundle\Windows_1.2.0.0_language-zh-hant.appx
