@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿using System;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 
@@ -12,11 +12,11 @@ namespace TestApp.Phone.Pages {
       base.OnNavigatedTo(e);
     }
 
-    private void Feedback_OnCancel(object sender, System.EventArgs e) {
+    private void Feedback_OnCancel(object sender, EventArgs e) {
       NavigationService.GoBack();
     }
 
-    private void Feedback_AfterSubmit(object sender, System.EventArgs e) {
+    private void Feedback_AfterSubmit(object sender, EventArgs e) {
       NavigationService.GoBack();
     }
   }

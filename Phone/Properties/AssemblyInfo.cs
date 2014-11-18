@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Resources;
+using System.Runtime.InteropServices;
 using AppboyPlatform.PCL;
 
 // General Information about an assembly is controlled through the following 
@@ -38,4 +38,4 @@ using AppboyPlatform.PCL;
 
 [assembly: AssemblyVersion(Constants.PhoneSdkVersion)]
 [assembly: AssemblyFileVersion(Constants.PhoneSdkVersion)]
-[assembly: NeutralResourcesLanguageAttribute("en-US")]
+[assembly: NeutralResourcesLanguage("en-US")]

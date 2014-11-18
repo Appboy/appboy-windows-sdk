@@ -10,7 +10,7 @@
   FontFamily="{StaticResource PhoneFontFamilyNormal}"
   FontSize="{StaticResource PhoneFontSizeNormal}"
   Foreground="{StaticResource PhoneForegroundBrush}"
-  SupportedOrientations="Portrait" Orientation="Portrait"
+  SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
   mc:Ignorable="d"
   shell:SystemTray.IsVisible="True">
 
@@ -26,10 +26,12 @@
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <TextBlock Text="{StaticResource PageName}" Grid.Row="0" Margin="29, -7, 0, 0" Style="{StaticResource PhoneTextTitle2Style}"/>
+    <TextBlock Text="{StaticResource PageName}" Grid.Row="0" Margin="29, -7, 0, 0"
+               Style="{StaticResource PhoneTextTitle2Style}"/>
     <StackPanel Grid.Row="1" VerticalAlignment="Center">
-      <CheckBox x:Name="ToastEnabledCheckBox" Content="{StaticResource ToastNotificationEnabled}" HorizontalAlignment="Center" Click="ToastEnabledCheckBox_Click"/>
-   </StackPanel>
+      <CheckBox x:Name="ToastEnabledCheckBox" Content="{StaticResource ToastNotificationEnabled}"
+                HorizontalAlignment="Center" Click="ToastEnabledCheckBox_Click"/>
+    </StackPanel>
   </Grid>
 
   <phone:PhoneApplicationPage.ApplicationBar>

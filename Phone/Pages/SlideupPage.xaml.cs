@@ -1,12 +1,13 @@
-﻿using AppboyPlatform.PCL.Managers;
-using AppboyPlatform.PCL.Models.Incoming;
-using AppboyPlatform.Phone;
-using Microsoft.Phone.Controls;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
+using AppboyPlatform.PCL.Managers;
+using AppboyPlatform.PCL.Models.Incoming;
+using AppboyPlatform.Phone;
+using Microsoft.Phone.Controls;
 using TestApp.Phone.AppboyClasses;
 
 namespace TestApp.Phone.Pages {
@@ -14,15 +15,15 @@ namespace TestApp.Phone.Pages {
     public const string CustomSlideupFactorySetKey = "_custom_slideup_";
     public const string UrlMapperSetKey = "_url_mapper_";
 
-    public ObservableCollection<Tuple<string, string>> Extras { get; set; }
-
     public SlideupPage() {
       InitializeComponent();
       Extras = new ObservableCollection<Tuple<string, string>>();
       ExtrasListBox.ItemsSource = Extras;
     }
 
-    protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e) {
+    public ObservableCollection<Tuple<string, string>> Extras { get; set; }
+
+    protected override void OnNavigatedTo(NavigationEventArgs e) {
       base.OnNavigatedTo(e);
       bool usingCustomSlideupFactory;
       IsolatedStorageSettings.ApplicationSettings.TryGetValue(CustomSlideupFactorySetKey, out usingCustomSlideupFactory);
@@ -39,7 +40,8 @@ namespace TestApp.Phone.Pages {
       if (String.IsNullOrWhiteSpace(ExtraKeyTextBox.Text)) {
         MessageBox.Show("The key cannot be whitespace or empty.");
         return;
-      } else if (String.IsNullOrWhiteSpace(ExtraValueTextBox.Text)) {
+      }
+      if (String.IsNullOrWhiteSpace(ExtraValueTextBox.Text)) {
         MessageBox.Show("The value cannot be whitespace or empty.");
         return;
       }
@@ -58,18 +60,21 @@ namespace TestApp.Phone.Pages {
       if (SlideFromListBox.SelectedIndex == -1) {
         MessageBox.Show("Please select from which direction the slideup will animate in.");
         return;
-      } else if (ClickActionListBox.SelectedIndex == -1) {
+      }
+      if (ClickActionListBox.SelectedIndex == -1) {
         MessageBox.Show("Please select a ClickAction.");
         return;
-      } else if (DismissTypeListBox.SelectedIndex == -1) {
+      }
+      if (DismissTypeListBox.SelectedIndex == -1) {
         MessageBox.Show("Please select a DismissType.");
         return;
-      } else if (ClickActionListBox.SelectedIndex == 1 && (String.IsNullOrWhiteSpace(UriTextBox.Text) || !Uri.IsWellFormedUriString(UriTextBox.Text, UriKind.Absolute))) {
+      }
+      if (ClickActionListBox.SelectedIndex == 1 && (String.IsNullOrWhiteSpace(UriTextBox.Text) || !Uri.IsWellFormedUriString(UriTextBox.Text, UriKind.Absolute))) {
         MessageBox.Show("A well formed URI is required when the ClickAction is set to URI.");
         return;
       }
 
-      var slideFromText = ((ListBoxItem)SlideFromListBox.SelectedItem).Content.ToString().ToLower();
+      string slideFromText = ((ListBoxItem)SlideFromListBox.SelectedItem).Content.ToString().ToLower();
       SlideFrom slideFrom;
       switch (slideFromText) {
         case "top":
@@ -83,7 +88,7 @@ namespace TestApp.Phone.Pages {
           return;
       }
 
-      var dismissTypeText = ((ListBoxItem)DismissTypeListBox.SelectedItem).Content.ToString().ToLower();
+      string dismissTypeText = ((ListBoxItem)DismissTypeListBox.SelectedItem).Content.ToString().ToLower();
       DismissType dismissType;
       switch (dismissTypeText) {
         case "auto":
@@ -99,13 +104,13 @@ namespace TestApp.Phone.Pages {
 
       var slideup = new Slideup("This is a test slideup.", slideFrom, dismissType, 5000);
 
-      var clickActionText = ((ListBoxItem)ClickActionListBox.SelectedItem).Content.ToString().ToLower();
+      string clickActionText = ((ListBoxItem)ClickActionListBox.SelectedItem).Content.ToString().ToLower();
       switch (clickActionText) {
         case "news feed":
           slideup.SetClickActionToNewsFeed();
           break;
         case "uri":
-          Uri uri = new Uri(UriTextBox.Text);
+          var uri = new Uri(UriTextBox.Text);
           slideup.SetClickActionToUri(uri);
           break;
         case "none":
@@ -115,7 +120,7 @@ namespace TestApp.Phone.Pages {
           return;
       }
 
-      foreach (Tuple<string, string> extra in Extras) {
+      foreach (var extra in Extras) {
         slideup.Extras.Add(extra.Item1, extra.Item2);
       }
       Appboy.SharedInstance.SlideupManager.AddSlideup(slideup);
@@ -143,6 +148,10 @@ namespace TestApp.Phone.Pages {
         Appboy.SharedInstance.SlideupManager.SlideupClicked = null;
         Appboy.SharedInstance.SlideupManager.SlideupDismissed = null;
       }
+    }
+
+    private void PhoneApplicationPage_OrientationChanged(object sender, OrientationChangedEventArgs e) {
+      Appboy.SharedInstance.SlideupManager.Redraw();
     }
 
     private void HandleSlideupsInternallyCheckBox_Click(object sender, RoutedEventArgs e) {

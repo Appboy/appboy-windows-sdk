@@ -11,7 +11,7 @@
   FontFamily="{StaticResource PhoneFontFamilyNormal}"
   FontSize="{StaticResource PhoneFontSizeNormal}"
   Foreground="{StaticResource PhoneForegroundBrush}"
-  SupportedOrientations="Portrait" Orientation="Portrait"
+  SupportedOrientations="PortraitOrLandscape" Orientation="Landscape"
   shell:SystemTray.IsVisible="True">
 
   <phone:PhoneApplicationPage.Resources>
@@ -26,23 +26,25 @@
 
   <Grid x:Name="LayoutRoot" Margin="20, 0, 20, 0">
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <TextBlock Text="{StaticResource AppName}" Grid.Row="0" Margin="9, -7, 0, 0" Style="{StaticResource PhoneTextTitle2Style}" TextWrapping="Wrap"/>
+    <TextBlock Text="{StaticResource AppName}" Grid.Row="0" Margin="9, -7, 0, 0"
+               Style="{StaticResource PhoneTextTitle2Style}" TextWrapping="Wrap"/>
 
     <Grid Grid.Row="1">
       <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*" x:Name="FirstColumn"/>
-        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
 
-      <Rectangle Grid.Row="0" Grid.Column="0" Margin="10" VerticalAlignment="Bottom" Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
+      <Rectangle Grid.Row="0" Grid.Column="0" Margin="10" VerticalAlignment="Bottom"
+                 Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
         <Rectangle.Fill>
           <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
             <GradientStop Color="Red" Offset="0"/>
@@ -50,7 +52,8 @@
           </LinearGradientBrush>
         </Rectangle.Fill>
       </Rectangle>
-      <Rectangle Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Bottom" Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
+      <Rectangle Grid.Row="0" Grid.Column="1" Margin="10" VerticalAlignment="Bottom"
+                 Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
         <Rectangle.Fill>
           <LinearGradientBrush StartPoint="1, 0" EndPoint="0, 1">
             <GradientStop Color="Green"/>
@@ -58,7 +61,8 @@
           </LinearGradientBrush>
         </Rectangle.Fill>
       </Rectangle>
-      <Rectangle Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Top" Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
+      <Rectangle Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Top"
+                 Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
         <Rectangle.Fill>
           <LinearGradientBrush StartPoint="0, 1" EndPoint="1, 0">
             <GradientStop Color="Blue"/>
@@ -66,7 +70,8 @@
           </LinearGradientBrush>
         </Rectangle.Fill>
       </Rectangle>
-      <Rectangle Grid.Row="1" Grid.Column="1" Margin="10"  VerticalAlignment="Top" Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
+      <Rectangle Grid.Row="1" Grid.Column="1" Margin="10" VerticalAlignment="Top"
+                 Height="{Binding ActualWidth,  Mode=OneWay, ElementName=FirstColumn}">
         <Rectangle.Fill>
           <LinearGradientBrush StartPoint="1, 1" EndPoint="0, 0">
             <GradientStop Color="Yellow"/>
@@ -79,16 +84,21 @@
 
   <phone:PhoneApplicationPage.ApplicationBar>
     <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\feed.png" Text="{StaticResource AppBarNewsFeed}" Click="Feed_Click"/>
-      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\feedback.png" Text="{StaticResource AppBarFeedback}" Click="Feedback_Click"/>
-      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\profile.png" Text="{StaticResource AppBarProfile}" Click="Profile_Click"/>
-      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\misc.png" Text="{StaticResource AppBarMisc}" Click="Misc_Click"/>      
+      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\feed.png" Text="{StaticResource AppBarNewsFeed}"
+                                      Click="Feed_Click"/>
+      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\feedback.png" Text="{StaticResource AppBarFeedback}"
+                                      Click="Feedback_Click"/>
+      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\profile.png" Text="{StaticResource AppBarProfile}"
+                                      Click="Profile_Click"/>
+      <shell:ApplicationBarIconButton IconUri="\Assets\Icons\misc.png" Text="{StaticResource AppBarMisc}"
+                                      Click="Misc_Click"/>
       <shell:ApplicationBar.MenuItems>
         <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSettings}" Click="Settings_Click"/>
         <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSlideups}" Click="Slideups_Click"/>
         <shell:ApplicationBarMenuItem Text="{StaticResource AppBarSocialFeed}" Click="Social_Feed_Click"/>
+        <shell:ApplicationBarMenuItem Text="landscape slideup" Click="LandscapeSlideup_Click"/>
       </shell:ApplicationBar.MenuItems>
-    </shell:ApplicationBar>    
+    </shell:ApplicationBar>
   </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

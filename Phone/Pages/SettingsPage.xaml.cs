@@ -1,10 +1,8 @@
-﻿using AppboyPlatform.Phone;
-using Microsoft.Phone.Controls;
-using System.ComponentModel;
-using System.IO.IsolatedStorage;
+﻿using System;
 using System.Windows;
-using TestApp.Phone.AppboyClasses;
-using AppboyUI.Phone;
+using System.Windows.Navigation;
+using AppboyPlatform.Phone;
+using Microsoft.Phone.Controls;
 
 namespace TestApp.Phone.Pages {
   public partial class SettingsPage : PhoneApplicationPage {
@@ -12,12 +10,12 @@ namespace TestApp.Phone.Pages {
       InitializeComponent();
     }
 
-    protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e) {
+    protected override void OnNavigatedTo(NavigationEventArgs e) {
       base.OnNavigatedTo(e);
       ToastEnabledCheckBox.IsChecked = Appboy.SharedInstance.PushManager.ToastOptInStatus ?? false;
     }
 
-    private void Back_Click(object sender, System.EventArgs e) {
+    private void Back_Click(object sender, EventArgs e) {
       NavigationService.GoBack();
     }
 

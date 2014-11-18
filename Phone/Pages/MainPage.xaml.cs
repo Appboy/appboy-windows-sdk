@@ -1,19 +1,21 @@
-﻿using AppboyPlatform.Phone;
-using Microsoft.Phone.Controls;
-using System;
+﻿using System;
 using System.Windows;
+using System.Windows.Navigation;
+using AppboyPlatform.Phone;
+using Microsoft.Phone.Controls;
 
 namespace TestApp.Phone.Pages {
   public partial class MainPage : PhoneApplicationPage {
     public MainPage() {
-      InitializeComponent();      
+      InitializeComponent();
     }
 
-    protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e) {
+    protected override void OnNavigatedTo(NavigationEventArgs e) {
       base.OnNavigatedTo(e);
 
       if (Appboy.SharedInstance.PushManager.ToastOptInStatus == null) {
-        var messageBoxResult = MessageBox.Show("We would like to send toast notifications to enhance your experience of the application.","Toast Notifications.", MessageBoxButton.OKCancel);        
+        MessageBoxResult messageBoxResult = MessageBox.Show("We would like to send toast notifications to enhance your experience of the application.", "Toast Notifications.",
+          MessageBoxButton.OKCancel);
         Appboy.SharedInstance.PushManager.ToastOptInStatus = (messageBoxResult == MessageBoxResult.OK);
       }
     }
@@ -44,6 +46,10 @@ namespace TestApp.Phone.Pages {
 
     private void Social_Feed_Click(object sender, EventArgs e) {
       NavigationService.Navigate(new Uri("/Pages/SocialFeedPage.xaml", UriKind.Relative));
+    }
+
+    private void LandscapeSlideup_Click(object sender, EventArgs e) {
+      NavigationService.Navigate(new Uri("/Pages/LandscapeSlideupPage.xaml", UriKind.Relative));
     }
   }
 }

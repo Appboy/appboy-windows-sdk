@@ -1,9 +1,9 @@
-﻿using AppboyPlatform.PCL.Models.Incoming;
-using AppboyPlatform.Phone.Managers;
-using System;
+﻿using System;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using AppboyPlatform.PCL.Models.Incoming;
+using AppboyPlatform.Phone.Managers;
 
 namespace TestApp.Phone.AppboyClasses {
   public class SlideupControlFactory : ISlideupControlFactory {
@@ -15,7 +15,7 @@ namespace TestApp.Phone.AppboyClasses {
         control.Chevron.Visibility = Visibility.Visible;
       }
 
-      StringBuilder message = new StringBuilder();
+      var message = new StringBuilder();
       message.Append(slideup.Message);
       if (slideup.Extras != null && slideup.Extras.Count > 0) {
         message.AppendLine(Environment.NewLine);

@@ -1,24 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
-  <DefaultLanguage xmlns="" code="en-US" />
+  <DefaultLanguage xmlns="" code="en-US"/>
   <Languages xmlns="">
-    <Language code="zh-CN" />
-    <Language code="zh-TW" />
+    <Language code="zh-CN"/>
+    <Language code="zh-TW"/>
   </Languages>
-  <App xmlns="" ProductID="{24f2104e-e390-4e2f-905d-c8d601413847}" Title="Appboy Sample App" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="TestApp author" Description="" Publisher="TestApp" PublisherID="{70fa5e5d-78c1-41d8-b151-935f86e11b76}">
+  <App xmlns="" ProductID="{24f2104e-e390-4e2f-905d-c8d601413847}" Title="Appboy Sample App" RuntimeType="Silverlight"
+       Version="1.0.0.0" Genre="apps.normal" Author="TestApp author" Description="" Publisher="TestApp"
+       PublisherID="{70fa5e5d-78c1-41d8-b151-935f86e11b76}">
     <IconPath IsRelative="true" IsResource="false">Logo.scale-100.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
-      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
-      <Capability Name="ID_CAP_SENSORS" />
-      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
-      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
-      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
-      <Capability Name="ID_CAP_LOCATION" />
+      <Capability Name="ID_CAP_NETWORKING"/>
+      <Capability Name="ID_CAP_MEDIALIB_AUDIO"/>
+      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK"/>
+      <Capability Name="ID_CAP_SENSORS"/>
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT"/>
+      <Capability Name="ID_CAP_IDENTITY_DEVICE"/>
+      <Capability Name="ID_CAP_PUSH_NOTIFICATION"/>
+      <Capability Name="ID_CAP_LOCATION"/>
     </Capabilities>
     <Tasks>
-      <DefaultTask Name="_default" NavigationPage="Pages\MainPage.xaml" />
+      <DefaultTask Name="_default" NavigationPage="Pages\MainPage.xaml"/>
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="TestAppToken" TaskName="_default">
@@ -36,12 +39,12 @@
       </PrimaryToken>
     </Tokens>
     <Extensions>
-      <Protocol Name="testapp" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" />
+      <Protocol Name="testapp" NavUriFragment="encodedLaunchUri=%s" TaskID="_default"/>
     </Extensions>
     <ScreenResolutions>
-      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
-      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
-      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+      <ScreenResolution Name="ID_RESOLUTION_WVGA"/>
+      <ScreenResolution Name="ID_RESOLUTION_WXGA"/>
+      <ScreenResolution Name="ID_RESOLUTION_HD720P"/>
     </ScreenResolutions>
   </App>
 </Deployment>

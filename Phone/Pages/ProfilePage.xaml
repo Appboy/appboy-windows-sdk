@@ -10,7 +10,7 @@
   FontFamily="{StaticResource PhoneFontFamilyNormal}"
   FontSize="{StaticResource PhoneFontSizeNormal}"
   Foreground="{StaticResource PhoneForegroundBrush}"
-  SupportedOrientations="Portrait" Orientation="Portrait"
+  SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
   mc:Ignorable="d"
   shell:SystemTray.IsVisible="True">
 
@@ -40,7 +40,8 @@
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-    <TextBlock Text="{StaticResource PageName}" Grid.Row="0" Margin="29, -7, 0, 0" Style="{StaticResource PhoneTextTitle2Style}"/>
+    <TextBlock Text="{StaticResource PageName}" Grid.Row="0" Margin="29, -7, 0, 0"
+               Style="{StaticResource PhoneTextTitle2Style}"/>
     <Grid Grid.Row="1">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
@@ -56,24 +57,38 @@
         <ColumnDefinition Width="Auto"/>
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
-      <TextBlock Grid.Row="0" Grid.Column="0" Text="{StaticResource FirstNameLabel}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-      <TextBox Grid.Row="0" Grid.Column="1" Name="FirstNameTextBox" Margin="5,0,0,0" TextWrapping="Wrap" InputScope="Default"/>
-      <TextBlock Grid.Row="1" Grid.Column="0" Text="{StaticResource LastNameLabel}" VerticalAlignment="Center"  HorizontalAlignment="Right"/>
-      <TextBox Grid.Row="1" Grid.Column="1" Name="LastNameTextBox" Margin="5,0,0,0" TextWrapping="Wrap" InputScope="Default"/>
-      <TextBlock Grid.Row="2" Grid.Column="0" Text="{StaticResource EmailLabel}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-      <TextBox Grid.Row="2" Grid.Column="1" Name="EmailTextBox" Margin="5,0,0,0" TextWrapping="Wrap" InputScope="EmailSmtpAddress"/>
-      <TextBlock Grid.Row="3" Grid.Column="0" Text="{StaticResource BioLabel}" Margin="0,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-      <TextBox Grid.Row="3" Grid.Column="1" Name="BioTextBox" Height="150" Margin="5,0,0,0" TextWrapping="Wrap" InputScope="Default" AcceptsReturn="True"/>
-      <TextBlock Grid.Row="4" Grid.Column="0" Text="{StaticResource PhoneNumberLabel}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-      <TextBox Grid.Row="4" Grid.Column="1" Name="PhoneNumberTextBox" Margin="5,0,0,0" TextWrapping="Wrap" InputScope="TelephoneNumber"/>
-      <TextBlock Grid.Row="5" Grid.Column="0" Text="{StaticResource GenderLabel}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="{StaticResource FirstNameLabel}" VerticalAlignment="Center"
+                 HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="0" Grid.Column="1" Name="FirstNameTextBox" Margin="5,0,0,0" TextWrapping="Wrap"
+               InputScope="Default"/>
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="{StaticResource LastNameLabel}" VerticalAlignment="Center"
+                 HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="1" Grid.Column="1" Name="LastNameTextBox" Margin="5,0,0,0" TextWrapping="Wrap"
+               InputScope="Default"/>
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="{StaticResource EmailLabel}" VerticalAlignment="Center"
+                 HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="2" Grid.Column="1" Name="EmailTextBox" Margin="5,0,0,0" TextWrapping="Wrap"
+               InputScope="EmailSmtpAddress"/>
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="{StaticResource BioLabel}" Margin="0,12,0,0"
+                 VerticalAlignment="Top" HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="3" Grid.Column="1" Name="BioTextBox" Height="150" Margin="5,0,0,0" TextWrapping="Wrap"
+               InputScope="Default" AcceptsReturn="True"/>
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="{StaticResource PhoneNumberLabel}" VerticalAlignment="Center"
+                 HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="4" Grid.Column="1" Name="PhoneNumberTextBox" Margin="5,0,0,0" TextWrapping="Wrap"
+               InputScope="TelephoneNumber"/>
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="{StaticResource GenderLabel}" VerticalAlignment="Center"
+                 HorizontalAlignment="Right"/>
       <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
         <RadioButton GroupName="GenderRadioButtonGroup" Name="GenderMale" Content="Male"/>
         <RadioButton GroupName="GenderRadioButtonGroup" Name="GenderFemale" Content="Female"/>
       </StackPanel>
-      <TextBlock Grid.Row="6" Grid.Column="0" Text="{StaticResource FavoriteColorLabel}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-      <TextBox Grid.Row="6" Grid.Column="1" Name="FavoriteColorTextBox" Margin="5,0,0,0" TextWrapping="Wrap" InputScope="Default"/>
-      <Button Grid.Row="7" Grid.ColumnSpan="2" Content="{StaticResource Save}" HorizontalAlignment="Right" Click="Save_Click" Style="{StaticResource Button}" Padding="20,10,20,10"/>      
+      <TextBlock Grid.Row="6" Grid.Column="0" Text="{StaticResource FavoriteColorLabel}" VerticalAlignment="Center"
+                 HorizontalAlignment="Right"/>
+      <TextBox Grid.Row="6" Grid.Column="1" Name="FavoriteColorTextBox" Margin="5,0,0,0" TextWrapping="Wrap"
+               InputScope="Default"/>
+      <Button Grid.Row="7" Grid.ColumnSpan="2" Content="{StaticResource Save}" HorizontalAlignment="Right"
+              Click="Save_Click" Style="{StaticResource Button}" Padding="20,10,20,10"/>
     </Grid>
   </Grid>
 </phone:PhoneApplicationPage>

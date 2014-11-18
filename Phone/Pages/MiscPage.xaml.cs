@@ -1,17 +1,17 @@
-﻿using AppboyPlatform.PCL.Models.Incoming.Cards;
-using AppboyPlatform.PCL.Results;
-using AppboyPlatform.Phone;
-using Microsoft.Phone.Controls;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using AppboyPlatform.PCL.Models.Incoming.Cards;
+using AppboyPlatform.PCL.Results;
+using AppboyPlatform.Phone;
+using Microsoft.Phone.Controls;
 
 namespace TestApp.Phone.Pages {
   public partial class MiscPage : PhoneApplicationPage {
-    private string _userId1;
-    private string _userId2;
+    private readonly string _userId1;
+    private readonly string _userId2;
     private bool? _isUserId1;
 
     public MiscPage() {
@@ -33,7 +33,7 @@ namespace TestApp.Phone.Pages {
     }
 
     private void RequestFeed_Click(object sender, RoutedEventArgs e) {
-      Action<Task<IResult>> logCards = (continuation) => {
+      Action<Task<IResult>> logCards = continuation => {
         Debug.WriteLine("Received the following news feed cards.");
         foreach (BaseCard card in continuation.Result.Cards ?? Enumerable.Empty<BaseCard>()) {
           Debug.WriteLine("News feed card {0}.", card);

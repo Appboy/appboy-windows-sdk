@@ -1,15 +1,18 @@
-﻿using AppboyPlatform.Phone;
-using AppboyPlatform.Phone.Managers.PushArgs;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using System;
+﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
+using AppboyPlatform.Phone;
+using AppboyPlatform.Phone.Managers.PushArgs;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using TestApp.Phone.AppboyClasses;
+using TestApp.Phone.Pages;
 using TestApp.Phone.Resources;
+using SlideupControlFactory = AppboyUI.Phone.Factories.SlideupControlFactory;
 
 namespace TestApp.Phone {
   // Appboy sessions: The Appboy class exposes methods to open and close sessions named OpenSession and CloseSession. These
@@ -38,8 +41,6 @@ namespace TestApp.Phone {
   //                            following line of code to the InitializePhoneApplication method:
   //                            RootFrame.Navigated += Appboy.SharedInstance.PushManager.NavigationEvent;
   public partial class App : Application {
-    public static PhoneApplicationFrame RootFrame { get; private set; }
-
     public App() {
       UnhandledException += Application_UnhandledException;
       InitializeComponent();
@@ -59,31 +60,33 @@ namespace TestApp.Phone {
       // BASIC SLIDEUP INTEGRATION:
       // Assigns the default Appboy slideup factory. The slideup will be displayed with the default Appboy slideup UI. The 
       // default Appboy UI can be themed by editing the AppboyUI.Phone stylesheet.
-      Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new AppboyUI.Phone.Factories.SlideupControlFactory();
+      Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new SlideupControlFactory();
       // Note: A NavigationEventHandler must be set in the InitializePhoneApplication method below in order to correctly 
       // reposition slideups after page navigations. See below.
 
       // ADVANCED SLIDEUP INTEGRATION OPTIONS:
       // Sets a custom SlideupManager SlideupFactory.
       bool usingCustomSlideupFactory;
-      IsolatedStorageSettings.ApplicationSettings.TryGetValue(Pages.SlideupPage.CustomSlideupFactorySetKey, out usingCustomSlideupFactory);
+      IsolatedStorageSettings.ApplicationSettings.TryGetValue(SlideupPage.CustomSlideupFactorySetKey, out usingCustomSlideupFactory);
       if (usingCustomSlideupFactory) {
         // Assigns a custom Appboy slideup factory. A custom Appboy slideup factory can be used to change the default 
         // Appboy slideup user interface and behavior.
-        Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new SlideupControlFactory();
+        Appboy.SharedInstance.SlideupManager.SlideupControlFactory = new AppboyClasses.SlideupControlFactory();
       }
       // Sets a custom URI mapper.
       bool usingCustomUriMapper;
-      IsolatedStorageSettings.ApplicationSettings.TryGetValue(Pages.SlideupPage.UrlMapperSetKey, out usingCustomUriMapper);
+      IsolatedStorageSettings.ApplicationSettings.TryGetValue(SlideupPage.UrlMapperSetKey, out usingCustomUriMapper);
       if (usingCustomUriMapper) {
         // Sets a custom URI mapper that allows slideups to navigate to the news feed integrated into the app.
         Appboy.SharedInstance.UriMapper = new CustomUriMapper();
-      } 
+      }
     }
 
+    public static PhoneApplicationFrame RootFrame { get; private set; }
+
     private static void OnRawPushReceived(object sender, RawPushReceivedEventArgs args) {
-      using (var reader = new System.IO.StreamReader(args.Notification.Body)) {
-        var message = reader.ReadToEnd();
+      using (var reader = new StreamReader(args.Notification.Body)) {
+        string message = reader.ReadToEnd();
         Debug.WriteLine("Received a raw push notification with message {0} and we can action on it in the app.", message);
       }
     }
@@ -137,10 +140,62 @@ namespace TestApp.Phone {
       }
     }
 
+    // Initialize the app's font and flow direction as defined in its localized resource strings.
+    //
+    // To ensure that the font of your application is aligned with its supported languages and that the
+    // FlowDirection for each of those languages follows its traditional direction, ResourceLanguage
+    // and ResourceFlowDirection should be initialized in each resx file to match these values with that
+    // file's culture. For example:
+    //
+    // AppResources.es-ES.resx
+    //    ResourceLanguage's value should be "es-ES"
+    //    ResourceFlowDirection's value should be "LeftToRight"
+    //
+    // AppResources.ar-SA.resx
+    //     ResourceLanguage's value should be "ar-SA"
+    //     ResourceFlowDirection's value should be "RightToLeft"
+    //
+    // For more info on localizing Windows Phone apps see http://go.microsoft.com/fwlink/?LinkId=262072.
+    //
+    private void InitializeLanguage() {
+      try {
+        // Set the font to match the display language defined by the
+        // ResourceLanguage resource string for each supported language.
+        //
+        // Fall back to the font of the neutral language if the Display
+        // language of the phone is not supported.
+        //
+        // If a compiler error is hit then ResourceLanguage is missing from
+        // the resource file.
+        RootFrame.Language = XmlLanguage.GetLanguage(AppResources.ResourceLanguage);
+
+        // Set the FlowDirection of all elements under the root frame based
+        // on the ResourceFlowDirection resource string for each
+        // supported language.
+        //
+        // If a compiler error is hit then ResourceFlowDirection is missing from
+        // the resource file.
+        var flow =
+          (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
+        RootFrame.FlowDirection = flow;
+      } catch {
+        // If an exception is caught here it is most likely due to either
+        // ResourceLangauge not being correctly set to a supported language
+        // code or ResourceFlowDirection is set to a value other than LeftToRight
+        // or RightToLeft.
+
+        if (Debugger.IsAttached) {
+          Debugger.Break();
+        }
+
+        throw;
+      }
+    }
+
     #region Phone application initialization
 
     // Avoid double-initialization
-    private bool phoneApplicationInitialized = false;
+    private bool phoneApplicationInitialized;
 
     // Do not add any additional code to this method
     private void InitializePhoneApplication() {
@@ -203,57 +258,5 @@ namespace TestApp.Phone {
     }
 
     #endregion
-
-    // Initialize the app's font and flow direction as defined in its localized resource strings.
-    //
-    // To ensure that the font of your application is aligned with its supported languages and that the
-    // FlowDirection for each of those languages follows its traditional direction, ResourceLanguage
-    // and ResourceFlowDirection should be initialized in each resx file to match these values with that
-    // file's culture. For example:
-    //
-    // AppResources.es-ES.resx
-    //    ResourceLanguage's value should be "es-ES"
-    //    ResourceFlowDirection's value should be "LeftToRight"
-    //
-    // AppResources.ar-SA.resx
-    //     ResourceLanguage's value should be "ar-SA"
-    //     ResourceFlowDirection's value should be "RightToLeft"
-    //
-    // For more info on localizing Windows Phone apps see http://go.microsoft.com/fwlink/?LinkId=262072.
-    //
-    private void InitializeLanguage() {
-      try {
-        // Set the font to match the display language defined by the
-        // ResourceLanguage resource string for each supported language.
-        //
-        // Fall back to the font of the neutral language if the Display
-        // language of the phone is not supported.
-        //
-        // If a compiler error is hit then ResourceLanguage is missing from
-        // the resource file.
-        RootFrame.Language = XmlLanguage.GetLanguage(AppResources.ResourceLanguage);
-
-        // Set the FlowDirection of all elements under the root frame based
-        // on the ResourceFlowDirection resource string for each
-        // supported language.
-        //
-        // If a compiler error is hit then ResourceFlowDirection is missing from
-        // the resource file.
-        FlowDirection flow =
-          (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
-        RootFrame.FlowDirection = flow;
-      } catch {
-        // If an exception is caught here it is most likely due to either
-        // ResourceLangauge not being correctly set to a supported language
-        // code or ResourceFlowDirection is set to a value other than LeftToRight
-        // or RightToLeft.
-
-        if (Debugger.IsAttached) {
-          Debugger.Break();
-        }
-
-        throw;
-      }
-    }
   }
 }
