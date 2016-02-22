@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <AppboyConfig>
-  <AppboyServer>STAGING</AppboyServer>
   <ApiKey>b1c736cd-6798-4387-a51a-7a663813ba6e</ApiKey>
   <DisableLocationCollection>false</DisableLocationCollection>
 </AppboyConfig>
