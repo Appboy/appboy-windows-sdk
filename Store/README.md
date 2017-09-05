@@ -1,4 +1,4 @@
-![Appboy Logo](https://github.com/Appboy/appboy-windows-samples/blob/master/Appboy_Logo_Smiley_Red-01.png)
+![Appboy Logo](https://github.com/Appboy/appboy-windows-samples/blob/master/Appboy_Logo_400x100.png)
 
 # Windows Store 8.0 and 8.1 Sample Applications
 
