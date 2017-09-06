@@ -1,10 +1,15 @@
-### Appboy Sample Apps
+![Appboy Logo](https://github.com/Appboy/appboy-windows-sdk/blob/master/Appboy_Logo_400x100.png)
 
-The Phone and Store subdirectories contain sample applications using Appboy's nuget sdk and open source UI libraries.  See their respective READMEs for more information.
+# Windows SDK
 
-- To clone this repo, do `git clone --recursive git@github.com:Appboy/appboy-windows-samples.git` which will ensure you also pull the required external git submodules.
+Effective marketing automation is an essential part of successfully scaling and managing your business. Appboy empowers you to build better customer relationships through a seamless, multi-channel approach that addresses all aspects of the user life cycle Appboy helps you engage your users on an ongoing basis. Visit the following link for details and we'll have you up and running in no time!
 
+## Getting Started
 
-- [Windows Store README](https://github.com/Appboy/appboy-windows-samples/blob/master/Store/README.md)
+Please see [our integration documentation](https://www.appboy.com/documentation/Windows_Universal/).
 
-- [Windows Phone README](https://github.com/Appboy/appboy-windows-samples/blob/master/Phone/README.md)
+## [Changelog](https://github.com/Appboy/appboy-windows-sdk/blob/master/CHANGELOG.md)
+
+## Questions?
+
+If you have questions, please contact [support@appboy.com](mailto:support@appboy.com). If you believe you are encountering a bug, feel free to file issues in this repository.
