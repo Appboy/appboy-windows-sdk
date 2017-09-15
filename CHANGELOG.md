@@ -1,16 +1,20 @@
-## 2.0.0.0
-  - Removes UI elements from the SDK - support for analytics and push remains
-  - Removes error log accessing Windows.UI.Core.CoreWindow.get_Bounds() 
-  - Locks Lex.db dependency to 1.2.5
-## 1.3.2.0
-  - Adds persistence of deviceId to prevent hardware changes from changing the deviceId.
-  - Adds methods SetCustomAttributeArray, RemoveFromCustomAttributeArray, and AddToCustomAttributeArray.  These methods can be used to set or modify custom attributes arrays that can be used for filtering and segmentation in the Appboy dashboard.
+## 2.0.1
+- Adds TLS 1.2 support for Windows Store and Windows Phone 8.1 apps.
+
+## 2.0.0
+- Removes UI elements from the SDK - support for analytics and push remains
+- Removes error log accessing Windows.UI.Core.CoreWindow.get_Bounds() 
+- Locks Lex.db dependency to 1.2.5
+
+## 1.3.2
+- Adds persistence of deviceId to prevent hardware changes from changing the deviceId.
+- Adds methods SetCustomAttributeArray, RemoveFromCustomAttributeArray, and AddToCustomAttributeArray.  These methods can be used to set or modify custom attributes arrays that can be used for filtering and segmentation in the Appboy dashboard.
     For example, watched_genres = [comedy, horror, drama].
 
-## 1.2.0.0
+## 1.2.0
 - Version 1.2.0.0 adds a universal library to support Windows Phone 8.1 and Windows Store apps.  It also adds CHANGELOGs to the UI libraries for the Phone, Store, and Universal libraries, for more granularity and divergent updates.  The store library is now being sunsetted; the universal library is taking it's place.
 
-## 1.1.0.0
+## 1.1.0
 Appboy version 1.1.0.0 provides a substantial upgrade to the slideup code and reorganization for better flexibility moving forward, but at the expense of a number of breaking changes. We've detailed the changes in this changelog and hope that you'll love the added power, increased flexibility, and improved UI that the new Appboy slideup provides. If you have any trouble with these changes, feel free to reach out to success@appboy.com for help, but most migrations to the new code structure should be relatively painless.
 
 New SlideupManager
