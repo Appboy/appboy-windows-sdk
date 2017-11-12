@@ -1,3 +1,7 @@
+## 2.0.2
+- Adds handling for a race condition when setting the same attribute quickly in succession.
+- Adds improved automatic dispatch handling such that loss of connectivity is better detected and dispatch proceeds after regaining connectivity.
+
 ## 2.0.1
 - Adds TLS 1.2 support for Windows Store and Windows Phone 8.1 apps.
 
