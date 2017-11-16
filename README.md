@@ -1,4 +1,4 @@
-<!--- ![Braze Logo](https://github.com/Appboy/appboy-windows-sdk/blob/master/braze-logo.png) -->
+![Braze Logo](https://github.com/Appboy/appboy-windows-sdk/blob/master/braze-logo.png)
 
 # Windows SDK
 
