@@ -1,3 +1,5 @@
+⚠️ This SDK is deprecated (as of March 24, 2022) and no longer maintained ⚠️
+
 ![Braze Logo](https://github.com/Appboy/appboy-windows-sdk/blob/master/braze-logo.png)
 
 # Windows SDK
